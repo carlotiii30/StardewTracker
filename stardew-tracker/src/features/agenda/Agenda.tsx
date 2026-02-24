@@ -1,11 +1,17 @@
 import { useGameStore } from '../../core/store/useGameStore';
 import styles from './Agenda.module.css';
+import { SEASON_TRANSLATIONS, SEASONS } from '../../core/constants';
 import { DaySelector } from './components/DaySelector';
 import { DailyAlerts } from './components/DailyAlerts';
 
 export const Agenda = () => {
-    // 1. Añadimos setSeason a la extracción
-    const { currentSeason, setSeason, day, tasks, addTask, toggleTask, deleteTask } = useGameStore();
+    const currentSeason = useGameStore((state) => state.currentSeason);
+    const setSeason = useGameStore((state) => state.setSeason);
+    const day = useGameStore((state) => state.day);
+    const tasks = useGameStore((state) => state.tasks);
+    const addTask = useGameStore((state) => state.addTask);
+    const toggleTask = useGameStore((state) => state.toggleTask);
+    const deleteTask = useGameStore((state) => state.deleteTask);
 
     const handleAddTask = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
@@ -17,22 +23,19 @@ export const Agenda = () => {
         }
     };
 
-    const seasons = ['primavera', 'verano', 'otoño', 'invierno'] as const;
-
-    // 2. Creamos una variable para las tareas filtradas por día Y estación
     const dailyTasks = tasks.filter(t => t.season === currentSeason && t.day === day);
 
     return (
         <div className={styles.agendaContainer}>
             <section className={styles.seasonSelector}>
-                {seasons.map(s => (
+                {SEASONS.map(s => (
                     <button
                         key={s}
                         onClick={() => setSeason(s)}
                         className={`${styles.seasonBtn} ${currentSeason === s ? styles[s] : ''}`}
-                        title={s}
+                        title={SEASON_TRANSLATIONS[s]}
                     >
-                        {s === 'primavera' ? '🌸' : s === 'verano' ? '☀️' : s === 'otoño' ? '🍁' : '❄️'}
+                        {s === 'spring' ? '🌸' : s === 'summer' ? '☀️' : s === 'fall' ? '🍁' : '❄️'}
                     </button>
                 ))}
             </section>
@@ -41,7 +44,7 @@ export const Agenda = () => {
 
             <section className={styles.todaySection}>
                 <h3 className={styles.sectionTitle}>
-                    {day} de {currentSeason.charAt(0).toUpperCase() + currentSeason.slice(1)}
+                    {day} de {SEASON_TRANSLATIONS[currentSeason]}
                 </h3>
                 <DailyAlerts />
             </section>

@@ -6,7 +6,7 @@ interface Task {
   id: string;
   text: string;
   completed: boolean;
-  season: 'primavera' | 'verano' | 'otoño' | 'invierno';
+  season: 'spring' | 'summer' | 'fall' | 'winter';
   day: number;
 }
 
@@ -14,7 +14,7 @@ interface GameState {
   // --- Estado del Juego ---
   completedBundles: string[];
   donatedItems: string[];
-  currentSeason: 'primavera' | 'verano' | 'otoño' | 'invierno';
+  currentSeason: 'spring' | 'summer' | 'fall' | 'winter';
   day: number; // Del 1 al 28
   
   // --- Estado de la Agenda ---
@@ -22,7 +22,7 @@ interface GameState {
 
   // --- Acciones del Juego ---
   toggleItem: (itemId: string) => void;
-  setSeason: (season: 'primavera' | 'verano' | 'otoño' | 'invierno') => void;
+  setSeason: (season: 'spring' | 'summer' | 'fall' | 'winter') => void;
   setDay: (day: number) => void;
   
   // --- Acciones de la Agenda ---
@@ -38,7 +38,7 @@ export const useGameStore = create<GameState>()(
       // --- Valores iniciales ---
       completedBundles: [],
       donatedItems: [],
-      currentSeason: 'primavera',
+      currentSeason: 'spring',
       day: 1,
       tasks: [],
 

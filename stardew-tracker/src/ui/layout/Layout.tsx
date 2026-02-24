@@ -1,4 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
+import { SEASON_TRANSLATIONS } from '../../core/constants';
 import { useGameStore } from '../../core/store/useGameStore';
 import { useEffect, useState } from 'react';
 import styles from './Layout.module.css';
@@ -56,7 +57,7 @@ export const Layout = () => {
                     <header className={styles.header}>
                         <h1>🌾 SDV</h1>
                         <div className={styles.seasonBadge}>
-                            <strong>{currentSeason}</strong>
+                            <strong>{SEASON_TRANSLATIONS[currentSeason]}</strong>
                         </div>
                     </header>
                     <main>
