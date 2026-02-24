@@ -12,6 +12,7 @@ export const Agenda = () => {
     const addTask = useGameStore((state) => state.addTask);
     const toggleTask = useGameStore((state) => state.toggleTask);
     const deleteTask = useGameStore((state) => state.deleteTask);
+    const moveTaskToNextDay = useGameStore((state) => state.moveTaskToNextDay);
 
     const handleAddTask = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
@@ -78,6 +79,13 @@ export const Agenda = () => {
                                     </span>
                                     <span className={styles.taskText}>{task.text}</span>
                                 </div>
+                                <button
+                                    onClick={() => moveTaskToNextDay(task.id)}
+                                    className={styles.moveBtn}
+                                    title="Pasar a mañana"
+                                >
+                                    ➡️
+                                </button>
                                 <button
                                     onClick={() => deleteTask(task.id)}
                                     className={styles.deleteBtn}

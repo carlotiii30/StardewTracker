@@ -62,12 +62,26 @@
     background: #3d2410;
 }
 
+.actions {
+    display: flex;
+    gap: 5px;
+}
+
+.moveBtn,
 .deleteBtn {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 1.2rem;
     padding: 5px;
+    filter: grayscale(1);
+}
+
+.moveBtn:hover {
+    transform: translateX(3px);
+}
+
+.deleteBtn {
     filter: grayscale(1);
 }
 
