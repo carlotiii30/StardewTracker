@@ -14,6 +14,18 @@ export const Villagers = () => {
     );
   });
 
+  const getSafeFileName = (text: string) => {
+    return text
+      .toLowerCase()
+      .replaceAll('á', 'a')
+      .replaceAll('é', 'e')
+      .replaceAll('í', 'i')
+      .replaceAll('ó', 'o')
+      .replaceAll('ú', 'u')
+      .replaceAll('ñ', 'n')
+      .replaceAll(' ', '_');
+  };
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -55,12 +67,10 @@ export const Villagers = () => {
                         className={`${styles.giftItem} ${isHighlight ? styles.highlight : ''}`}
                       >
                         <img
-                          src={`/items/${gift.toLowerCase().replace(/ /g, '_')}.png`}
+                          src={`/items/${getSafeFileName(gift)}.png`}
                           alt={gift}
                           className={styles.giftIcon}
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                          }}
+                          onError={(e) => (e.currentTarget.style.display = 'none')}
                         />
                         <span>{gift}</span>
                       </li>
