@@ -17,7 +17,7 @@ export const Agenda = () => {
         }
     };
 
-    const seasons = ['spring', 'summer', 'fall', 'winter'] as const;
+    const seasons = ['primavera', 'verano', 'otoño', 'invierno'] as const;
 
     // 2. Creamos una variable para las tareas filtradas por día Y estación
     const dailyTasks = tasks.filter(t => t.season === currentSeason && t.day === day);
@@ -32,7 +32,7 @@ export const Agenda = () => {
                         className={`${styles.seasonBtn} ${currentSeason === s ? styles[s] : ''}`}
                         title={s}
                     >
-                        {s === 'spring' ? '🌸' : s === 'summer' ? '☀️' : s === 'fall' ? '🍁' : '❄️'}
+                        {s === 'primavera' ? '🌸' : s === 'verano' ? '☀️' : s === 'otoño' ? '🍁' : '❄️'}
                     </button>
                 ))}
             </section>
