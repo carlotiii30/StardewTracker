@@ -1,0 +1,120 @@
+.agendaContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sectionTitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #ffcea6;
+    border-left: 4px solid #7a431d;
+    padding-left: 10px;
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    background: #2d1d13;
+    border: 2px solid #5d2e08;
+    border-radius: 8px;
+    padding: 5px 15px;
+    margin-bottom: 1.5rem;
+}
+
+.taskInput {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+}
+
+.taskWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.taskItem {
+    flex: 1;
+    background: #5d2e08;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 2px solid transparent;
+}
+
+.taskItem:hover {
+    border-color: #7a431d;
+}
+
+.completed {
+    opacity: 0.5;
+    text-decoration: line-through;
+    background: #3d2410;
+}
+
+.deleteBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+    filter: grayscale(1);
+}
+
+.deleteBtn:hover {
+    filter: grayscale(0);
+}
+
+.divider {
+    border: 0;
+    height: 2px;
+    background: #5d2e08;
+    margin: 1rem 0;
+}
+
+.seasonSelector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.seasonBtn {
+    background: #2d1d13;
+    border: 2px solid #5d2e08;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.2s;
+}
+
+.spring {
+    background: #ffb7d5 !important;
+    border-color: #ff69b4;
+}
+
+.summer {
+    background: #fff4ad !important;
+    border-color: #ffd700;
+}
+
+.fall {
+    background: #e9967a !important;
+    border-color: #d2691e;
+}
+
+.winter {
+    background: #afeeee !important;
+    border-color: #5f9ea0;
+}

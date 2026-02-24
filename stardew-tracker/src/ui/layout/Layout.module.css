@@ -1,0 +1,127 @@
+.layoutContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 100vh;
+    background-color: #2d1d13;
+    color: #ffcea6;
+}
+
+.navbar {
+    background-color: #5d2e08;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 4px solid #7a431d;
+    z-index: 1000;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #a8866b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.active {
+    color: #fff !important;
+    background-color: #7a431d;
+}
+
+.mainContent {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+
+.contentWrapper {
+    width: 100%;
+    max-width: 800px;
+    padding: 1.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.seasonBadge {
+    background: #7a431d;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 2px solid #ffcea6;
+}
+
+.donationLink {
+    text-decoration: none;
+    color: #ffcea6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    transition: 0.2s;
+    border-radius: 8px;
+}
+
+.donationLink:hover {
+    background-color: #7a431d;
+    transform: scale(1.05);
+}
+
+/* --- VERSION DESKTOP --- */
+@media (min-width: 768px) {
+    .layoutContainer {
+        flex-direction: row;
+    }
+
+    .navbar {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 2rem 1rem;
+        border-top: none;
+        border-right: 4px solid #7a431d;
+    }
+
+    .navLink {
+        flex-direction: row;
+        flex: none;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 15px;
+    }
+
+    .mainContent {
+        padding-bottom: 2rem;
+    }
+
+    .navTitle {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #fff;
+    }
+
+    .donationLink {
+        margin-top: auto;
+        flex-direction: row;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .donationLink .label {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,133 @@
+.container {
+    padding-bottom: 2rem;
+}
+
+.header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 3px solid #5d2e08;
+    background: #ffcea6;
+    color: #2d1d13;
+    font-weight: bold;
+    outline: none;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: #5d2e08;
+    border: 3px solid #7a431d;
+    border-radius: 12px;
+    display: flex;
+    padding: 15px;
+    gap: 15px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.portraitPlaceholder {
+    width: 64px;
+    height: 64px;
+    background: #7a431d;
+    border: 2px solid #ffcea6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border-radius: 8px;
+    color: #ffcea6;
+}
+
+.portraitContainer {
+    width: 64px;
+    height: 64px;
+    background: #7a431d;
+    border: 2px solid #ffcea6;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 1.5rem;
+    color: #ffcea6;
+}
+
+.portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+
+.info {
+    flex: 1;
+}
+
+.name {
+    margin: 0 0 5px 0;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #a8866b;
+    margin-bottom: 5px;
+}
+
+.giftList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.giftItem {
+    background: #2d1d13;
+    color: #ffcea6;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #7a431d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.giftIcon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.noResults {
+    text-align: center;
+    grid-column: 1 / -1;
+    color: #a8866b;
+}
+
+.highlight {
+    background: #ffcea6 !important;
+    color: #5d2e08 !important;
+    transform: scale(1.05);
+    border-color: #fff !important;
+}
