@@ -1,47 +1,270 @@
 {
   "spring": [
-    { "day": 4, "name": "Kent", "type": "birthday" },
-    { "day": 7, "name": "Lewis", "type": "birthday" },
-    { "day": 10, "name": "Vincent", "type": "birthday" },
-    { "day": 13, "name": "Egg Festival", "type": "festival" },
-    { "day": 14, "name": "Haley", "type": "birthday" },
-    { "day": 20, "name": "Pam", "type": "birthday" },
-    { "day": 24, "name": "Flower Dance", "type": "festival" },
-    { "day": 26, "name": "Pierre", "type": "birthday" }
+    {
+      "day": 4,
+      "name": "Kent",
+      "type": "birthday"
+    },
+    {
+      "day": 7,
+      "name": "Lewis",
+      "type": "birthday"
+    },
+    {
+      "day": 10,
+      "name": "Vincent",
+      "type": "birthday"
+    },
+    {
+      "day": 13,
+      "name": "Festival del huevo",
+      "type": "festival"
+    },
+    {
+      "day": 14,
+      "name": "Haley",
+      "type": "birthday"
+    },
+    {
+      "day": 15,
+      "name": "Festival del desierto",
+      "type": "festival"
+    },
+    {
+      "day": 16,
+      "name": "Festival del desierto",
+      "type": "festival"
+    },
+    {
+      "day": 17,
+      "name": "Festival del desierto",
+      "type": "festival"
+    },
+    {
+      "day": 18,
+      "name": "Pam",
+      "type": "birthday"
+    },
+    {
+      "day": 20,
+      "name": "Shane",
+      "type": "birthday"
+    },
+    {
+      "day": 24,
+      "name": "Danza floral",
+      "type": "festival"
+    },
+    {
+      "day": 26,
+      "name": "Pierre",
+      "type": "birthday"
+    },
+    {
+      "day": 27,
+      "name": "Emily",
+      "type": "birthday"
+    }
   ],
   "summer": [
-    { "day": 4, "name": "Jas", "type": "birthday" },
-    { "day": 10, "name": "Gus", "type": "birthday" },
-    { "day": 11, "name": "Luau", "type": "festival" },
-    { "day": 13, "name": "Maru", "type": "birthday" },
-    { "day": 17, "name": "Alex", "type": "birthday" },
-    { "day": 24, "name": "Willy", "type": "birthday" },
-    { "day": 26, "name": "Leo", "type": "birthday" },
-    { "day": 28, "name": "Dance of the Moonlight Jellies", "type": "festival" }
+    {
+      "day": 4,
+      "name": "Jas",
+      "type": "birthday"
+    },
+    {
+      "day": 8,
+      "name": "Gus",
+      "type": "birthday"
+    },
+    {
+      "day": 10,
+      "name": "Maru",
+      "type": "birthday"
+    },
+    {
+      "day": 11,
+      "name": "Luau",
+      "type": "festival"
+    },
+    {
+      "day": 13,
+      "name": "Alex",
+      "type": "birthday"
+    },
+    {
+      "day": 17,
+      "name": "Sam",
+      "type": "birthday"
+    },
+    {
+      "day": 19,
+      "name": "Demetrius",
+      "type": "birthday"
+    },
+    {
+      "day": 20,
+      "name": "Derby de la trucha",
+      "type": "festival"
+    },
+    {
+      "day": 21,
+      "name": "Derby de la trucha",
+      "type": "festival"
+    },
+    {
+      "day": 22,
+      "name": "Enano",
+      "type": "birthday"
+    },
+    {
+      "day": 24,
+      "name": "Willy",
+      "type": "birthday"
+    },
+    {
+      "day": 26,
+      "name": "Leo",
+      "type": "birthday"
+    },
+    {
+      "day": 28,
+      "name": "Danza de las medusas lunares",
+      "type": "festival"
+    }
   ],
   "fall": [
-    { "day": 2, "name": "Penny", "type": "birthday" },
-    { "day": 5, "name": "Elliott", "type": "birthday" },
-    { "day": 13, "name": "Abigail", "type": "birthday" },
-    { "day": 15, "name": "Stardew Valley Fair", "type": "festival" },
-    { "day": 18, "name": "George", "type": "birthday" },
-    { "day": 21, "name": "Sebastian", "type": "birthday" },
-    { "day": 24, "name": "Robin", "type": "birthday" },
-    { "day": 27, "name": "Spirit's Eve", "type": "festival" }
+    {
+      "day": 2,
+      "name": "Penny",
+      "type": "birthday"
+    },
+    {
+      "day": 5,
+      "name": "Elliott",
+      "type": "birthday"
+    },
+    {
+      "day": 11,
+      "name": "Jodi",
+      "type": "birthday"
+    },
+    {
+      "day": 13,
+      "name": "Abigail",
+      "type": "birthday"
+    },
+    {
+      "day": 15,
+      "name": "Sandy",
+      "type": "birthday"
+    },
+    {
+      "day": 16,
+      "name": "Feria de Stardew Valley",
+      "type": "festival"
+    },
+    {
+      "day": 18,
+      "name": "Marnie",
+      "type": "birthday"
+    },
+    {
+      "day": 21,
+      "name": "Robin",
+      "type": "birthday"
+    },
+    {
+      "day": 24,
+      "name": "George",
+      "type": "birthday"
+    },
+    {
+      "day": 27,
+      "name": "Vispera de los espíritus",
+      "type": "festival"
+    }
   ],
   "winter": [
-    { "day": 1, "name": "Krobus", "type": "birthday" },
-    { "day": 3, "name": "Linus", "type": "birthday" },
-    { "day": 7, "name": "Caroline", "type": "birthday" },
-    { "day": 8, "name": "Festival of Ice", "type": "festival" },
-    { "day": 14, "name": "Harvey", "type": "birthday" },
-    { "day": 15, "name": "Night Market", "type": "festival" },
-    { "day": 16, "name": "Night Market", "type": "festival" },
-    { "day": 17, "name": "Night Market", "type": "festival" },
-    { "day": 17, "name": "Wizard", "type": "birthday" },
-    { "day": 20, "name": "Evelyn", "type": "birthday" },
-    { "day": 23, "name": "Leah", "type": "birthday" },
-    { "day": 25, "name": "Feast of the Winter Star", "type": "festival" },
-    { "day": 26, "name": "Clint", "type": "birthday" }
+    {
+      "day": 1,
+      "name": "Krobus",
+      "type": "birthday"
+    },
+    {
+      "day": 3,
+      "name": "Linus",
+      "type": "birthday"
+    },
+    {
+      "day": 7,
+      "name": "Caroline",
+      "type": "birthday"
+    },
+    {
+      "day": 8,
+      "name": "Festival del hielo",
+      "type": "festival"
+    },
+    {
+      "day": 10,
+      "name": "Sebastian",
+      "type": "birthday"
+    },
+    {
+      "day": 12,
+      "name": "Festival del calamar",
+      "type": "festival"
+    },
+    {
+      "day": 13,
+      "name": "Festival del calamar",
+      "type": "festival"
+    },
+    {
+      "day": 14,
+      "name": "Harvey",
+      "type": "birthday"
+    },
+    {
+      "day": 15,
+      "name": "Mercado Nocturno",
+      "type": "festival"
+    },
+    {
+      "day": 16,
+      "name": "Mercado Nocturno",
+      "type": "festival"
+    },
+    {
+      "day": 17,
+      "name": "Mercado Nocturno",
+      "type": "festival"
+    },
+    {
+      "day": 17,
+      "name": "Rasmodius",
+      "type": "birthday"
+    },
+    {
+      "day": 20,
+      "name": "Evelyn",
+      "type": "birthday"
+    },
+    {
+      "day": 23,
+      "name": "Leah",
+      "type": "birthday"
+    },
+    {
+      "day": 25,
+      "name": "Fiesta de la estrella de invierno",
+      "type": "festival"
+    },
+    {
+      "day": 26,
+      "name": "Clint",
+      "type": "birthday"
+    }
   ]
 }
