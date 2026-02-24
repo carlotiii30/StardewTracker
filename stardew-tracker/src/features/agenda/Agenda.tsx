@@ -36,7 +36,16 @@ export const Agenda = () => {
                         className={`${styles.seasonBtn} ${currentSeason === s ? styles[s] : ''}`}
                         title={SEASON_TRANSLATIONS[s]}
                     >
-                        {s === 'spring' ? '🌸' : s === 'summer' ? '☀️' : s === 'fall' ? '🍁' : '❄️'}
+                        <img
+                            src={`/seasons/${s}.png`}
+                            alt={SEASON_TRANSLATIONS[s]}
+                            className={styles.seasonIcon}
+                            onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                                e.currentTarget.parentElement!.innerHTML =
+                                    s === 'spring' ? '🌸' : s === 'summer' ? '☀️' : s === 'fall' ? '🍁' : '❄️';
+                            }}
+                        />
                     </button>
                 ))}
             </section>

@@ -1,20 +1,50 @@
 .layoutContainer {
+    --bg-color: #dbecbc;
+    --nav-color: #5d2e08;
+    --accent-color: #7a431d;
+    --text-accent: #ffcea6;
+
     display: flex;
     flex-direction: column-reverse;
     min-height: 100vh;
-    background-color: #2d1d13;
-    color: #ffcea6;
+    background-color: var(--bg-color);
+    color: var(--text-accent);
+    transition: background-color 0.5s ease;
+}
+
+.spring {
+    --bg-color: #f8d9f5;
+    --nav-color: #ffb7f7;
+    --accent-color: rgb(200, 85, 177);
+}
+
+.summer {
+    --bg-color: rgb(232, 253, 232);
+    --nav-color: rgb(157, 223, 188);
+    --accent-color: rgb(95, 159, 103);
+}
+
+.fall {
+    --bg-color: #f7d4a3;
+    --nav-color: #e9967a;
+    --accent-color: rgb(193, 66, 31);
+}
+
+.winter {
+    --bg-color: rgb(214, 237, 252);
+    --nav-color: rgb(122, 181, 249);
+    --accent-color: rgb(40, 98, 165);
 }
 
 .navbar {
-    background-color: #5d2e08;
+    background-color: var(--nav-color);
+    border-top: 4px solid var(--accent-color);
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
-    border-top: 4px solid #7a431d;
     z-index: 1000;
 }
 
@@ -31,7 +61,7 @@
 
 .active {
     color: #fff !important;
-    background-color: #7a431d;
+    background-color: var(--accent-color);
 }
 
 .mainContent {
@@ -55,10 +85,8 @@
 }
 
 .seasonBadge {
-    background: #7a431d;
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 2px solid #ffcea6;
+    background: var(--accent-color);
+    border: 2px solid var(--text-accent);
 }
 
 .donationLink {
@@ -93,7 +121,7 @@
         justify-content: flex-start;
         padding: 2rem 1rem;
         border-top: none;
-        border-right: 4px solid #7a431d;
+        border-right: 4px solid var(--accent-color);
     }
 
     .navLink {

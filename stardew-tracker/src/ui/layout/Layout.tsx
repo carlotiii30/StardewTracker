@@ -17,14 +17,14 @@ export const Layout = () => {
     }, []);
 
     const navItems = [
-        { path: '/', label: 'Agenda', icon: '📅' },
-        { path: '/bundles', label: 'Lotes', icon: '📦' },
-        { path: '/villagers', label: 'Aldeanos', icon: '💬' },
-        { path: '/settings', label: 'Ajustes', icon: '⚙️' },
+        { path: '/', label: 'Agenda', iconName: 'agenda' },
+        { path: '/bundles', label: 'Lotes', iconName: 'bundles' },
+        { path: '/villagers', label: 'Aldeanos', iconName: 'villagers' },
+        { path: '/settings', label: 'Ajustes', iconName: 'settings' },
     ];
 
     return (
-        <div className={styles.layoutContainer}>
+        <div className={`${styles.layoutContainer} ${styles[currentSeason]}`}>
             <nav className={styles.navbar}>
                 {!isMobile && <h2 className={styles.navTitle}>🌾 SDV Helper</h2>}
 
@@ -35,7 +35,11 @@ export const Layout = () => {
                             to={item.path}
                             className={`${styles.navLink} ${location.pathname === item.path ? styles.active : ''}`}
                         >
-                            <span className={styles.icon}>{item.icon}</span>
+                            <img
+                                src={`/menus/${item.iconName}.png`}
+                                alt={item.label}
+                                className={styles.navIcon}
+                            />
                             <span className={styles.label}>{item.label}</span>
                         </Link>
                     ))}
