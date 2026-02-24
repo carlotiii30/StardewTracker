@@ -23,7 +23,8 @@ export const Villagers = () => {
       .replaceAll('ó', 'o')
       .replaceAll('ú', 'u')
       .replaceAll('ñ', 'n')
-      .replaceAll(' ', '_');
+      .replaceAll(' ', '_')
+      .replaceAll(',', '');
   };
 
   return (

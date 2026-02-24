@@ -1,33 +1,248 @@
 {
-  "Abigail": ["Amatista", "Anguila picante", "Calabaza", "Compendio de Monstruos", "Pastel de chocolate", "Pez globo", "Pudding de plátano", "Tarta de moras"],
-  "Alex": ["Desayuno completo", "Cena de salmón"],
-  "Caroline": ["Curry tropical", "Lentejuela de verano", "Taco de pescado", "Té verde"],
-  "Clint": ["Amatista", "Aguamarina", "Esmeralda", "Jade", "Rubí", "Topacio", "Barra de iridio"],
-  "Demetrius": ["Pudin de arroz", "Helado", "Fresa"],
-  "Elliott": ["Pastel de cangrejo", "Pato al horno", "Langosta", "Granada"],
-  "Emily": ["Amatista", "Aguamarina", "Esmeralda", "Jade", "Rubí", "Topacio", "Lana"],
-  "Evelyn": ["Remolacha", "Tarta de chocolate", "Diamante", "Tulipán"],
-  "George": ["Champiñón frito", "Puerro"],
-  "Gus": ["Diamante", "Pescado a la naranja", "Platillo rojo"],
-  "Haley": ["Coco", "Ensalada de fruta", "Girasol"],
-  "Harvey": ["Café", "Vino", "Pepinillo", "Aceite de trufa"],
-  "Jas": ["Hada rosa", "Pudin de ciruela"],
-  "Jodi": ["Cena de diamantes", "Berenjena al parmesano", "Panqueques"],
-  "Kent": ["Risotto de helecho", "Calamar asado"],
-  "Krobus": ["Diamante", "Huevo de sombra", "Mayonesa de vacío"],
-  "Leah": ["Ensalada", "Salteado de setas", "Vino", "Trufa"],
-  "Lewis": ["Pimiento picante", "Té verde", "Platillo de raíces"],
-  "Linus": ["Coco", "Cactus"],
-  "Marnie": ["Tarta de calabaza", "Diamante"],
-  "Maru": ["Diamante", "Barra de iridio", "Fresa", "Batería"],
-  "Pam": ["Cerveza", "Pale Ale", "Chirivía"],
-  "Penny": ["Esmeralda", "Melón", "Amapola", "Diamante"],
-  "Pierre": ["Calamares fritos", "Catálogo de Precios"],
-  "Robin": ["Queso de cabra", "Melocotón", "Espagueti"],
-  "Sam": ["Cactus", "Pizza"],
-  "Sebastian": ["Huevo de sombra", "Sashimi", "Calabaza", "Obsidiana"],
-  "Shane": ["Cerveza", "Pizza", "Pimiento picante"],
-  "Vincent": ["Uva", "Caramelo rosa"],
-  "Willy": ["Diamante", "Barra de iridio", "Calabaza", "Pepino de mar"],
-  "Rasmodius": ["Esencia solar", "Esencia de vacío", "Superpepino"]
+  "Abigail": [
+    "Amatista",
+    "Anguila picante",
+    "Calabaza",
+    "Compendio de Monstruos",
+    "Pastel de chocolate",
+    "Pez globo",
+    "Pudding de plátano",
+    "Tarta de moras"
+  ],
+  "Alex": [
+    "Desayuno inglés",
+    "Banquete de salmón",
+    "Jack sé ágil, Jack sé fuerte"
+  ],
+  "Caroline": [
+    "Curry tropical",
+    "Lentejuela de verano",
+    "Taco de pescado",
+    "Té verde"
+  ],
+  "Clint": [
+    "Aguamarina",
+    "Amatista",
+    "Esmeralda",
+    "Jade",
+    "Lingote de oro",
+    "Lingote de iridio",
+    "Omnigeoda",
+    "Risotto de helecho",
+    "Rubí",
+    "Salsa de alcachofa",
+    "Topacio"
+  ],
+  "Demetrius": [
+    "Arroz con leche",
+    "Helado",
+    "Fresa",
+    "Estofado de judías"
+  ],
+  "Elliott": [
+    "Granada",
+    "Langosta",
+    "Pluma de pato",
+    "Sopa Tom Kha",
+    "Tinta de calamar",
+    "Tortas de cangrejo"
+  ],
+  "Emily": [
+    "Amatista",
+    "Aguamarina",
+    "Esmeralda",
+    "Jade",
+    "Rubí",
+    "Topacio",
+    "Lana",
+    "Hamburguesa",
+    "Huevo de loro",
+    "Tela"
+  ],
+  "Evelyn": [
+    "Remolacha",
+    "Pastel de chocolate",
+    "Diamante",
+    "Tulipán",
+    "Pasas",
+    "Relleno",
+    "Rosa hada"
+  ],
+  "George": [
+    "Setas salteadas",
+    "Puerro"
+  ],
+  "Gus": [
+    "Diamante",
+    "Curry tropical",
+    "Escargot",
+    "Naranja",
+    "Taco de pescado"
+  ],
+  "Haley": [
+    "Coco",
+    "Macedonia",
+    "Girasol",
+    "Pastel rosa"
+  ],
+  "Harvey": [
+    "Aceite de trufa",
+    "Café",
+    "Encurtidos",
+    "Supercomida",
+    "Vino"
+  ],
+  "Jas": [
+    "Rosa hada",
+    "Pudín de ciruela",
+    "Pastel rosa"
+  ],
+  "Jodi": [
+    "Diamante",
+    "Berenjena al parmesano",
+    "Tortitas",
+    "Anguila frita",
+    "Estofado vegetal",
+    "Pastel de chocolate",
+    "Perca crujiente",
+    "Tarta de ruibarbo"
+  ],
+  "Kent": [
+    "Risotto de helecho",
+    "Avellanas tostadas"
+  ],
+  "Krobus": [
+    "Calabaza",
+    "Compendio de monstruos",
+    "Diamante",
+    "Huevo sombrío",
+    "Lingote de iridio",
+    "Mayonesa sombría",
+    "Rábano silvestre"
+  ],
+  "Leah": [
+    "Ensalada",
+    "Estofado vegetal",
+    "Muffin de amapola",
+    "Queso de cabra",
+    "Sofrito",
+    "Trufa",
+    "Vino"
+  ],
+  "Lewis": [
+    "Chile",
+    "Té verde",
+    "Botín otoñal",
+    "Estofado vegetal",
+    "Ñames glaseados"
+  ],
+  "Linus": [
+    "Coco",
+    "El Bufé del Callejón",
+    "Higo chumbo",
+    "Ñame",
+    "Plato de alta mar",
+    "Tarta de arándanos"
+  ],
+  "Marnie": [
+    "Tarta de calabaza",
+    "Diamante",
+    "Pastel Rosa",
+    "Almuerzo de granjero"
+  ],
+  "Maru": [
+    "Diamante",
+    "Lingote de iridio",
+    "Fresa",
+    "Pila",
+    "Bocaditos de pimiento",
+    "Capricho de minero",
+    "Coliflor",
+    "Coliflor gratinada",
+    "Lingote de oro",
+    "Lingote radioactivo",
+    "Tarta de ruibarbo"
+  ],
+  "Pam": [
+    "Cerveza",
+    "Cerveza pálida",
+    "Chirivía",
+    "Hidromiel",
+    "Higo chumbo",
+    "Ñames glaseados",
+    "Piña colada",
+    "Sopa de chirivía"
+  ],
+  "Penny": [
+    "Esmeralda",
+    "Melón",
+    "Amapola",
+    "Diamante",
+    "Lenguado",
+    "Plato rojo",
+    "Bandeja de raíces",
+    "Muffin de amapola",
+    "Sopa Tom Kha"
+  ],
+  "Pierre": [
+    "Calamares fritos",
+    "Catálogo de Precios"
+  ],
+  "Robin": [
+    "Queso de cabra",
+    "Melocotón",
+    "Espagueti",
+    "El secreto de Woody"
+  ],
+  "Sam": [
+    "Higo Chumbo",
+    "Pizza",
+    "Ojo de tigre",
+    "Bollito de arce"
+  ],
+  "Sandy": [
+    "Arroz pegajoso de mango",
+    "Azafrán",
+    "Guisante dulce",
+    "Narciso"
+  ],
+  "Sebastian": [
+    "Huevo de sombra",
+    "Sashimi",
+    "Calabaza",
+    "Obsidiana"
+  ],
+  "Shane": [
+    "Cerveza",
+    "Pizza",
+    "Bocaditos de pimiento",
+    "Chile"
+  ],
+  "Vincent": [
+    "Uva",
+    "Pastel rosa",
+    "Refresco de jengibre",
+    "Caracol",
+    "Dulce de grosellas"
+  ],
+  "Willy": [
+    "Calabaza",
+    "Diamante",
+    "El Arte del Cangrejo",
+    "Esturión",
+    "Hidromiel",
+    "Joyas del Mar",
+    "Lingote de iridio",
+    "Lingote de oro",
+    "Pepino de mar",
+    "Pez gato",
+    "Pulpo"
+  ],
+  "Rasmodius": [
+    "Esencia solar",
+    "Esencia sombría",
+    "Libro de misterios",
+    "Seta lila",
+    "Superpepino"
+  ]
 }
