@@ -1,11 +1,11 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { SEASON_TRANSLATIONS } from '../../core/constants';
-import { useGameStore } from '../../core/store/useGameStore';
+import { SEASON_TRANSLATIONS } from '@shared/constants';
+import { useProgressStore } from '@shared/store/useProgressStore';
 import { useEffect, useState } from 'react';
 import styles from './Layout.module.css';
 
 export const Layout = () => {
-    const currentSeason = useGameStore((state) => state.currentSeason);
+    const currentSeason = useProgressStore((state) => state.currentSeason);
     const location = useLocation();
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -26,7 +26,7 @@ export const Layout = () => {
     return (
         <div className={`${styles.layoutContainer} ${styles[currentSeason]}`}>
             <nav className={styles.navbar}>
-                {!isMobile && <h2 className={styles.navTitle}>🌾 SDV Helper</h2>}
+                {!isMobile && <h2 className={styles.navTitle}>SDV Helper</h2>}
 
                 <div className={styles.navLinksWrapper}>
                     {navItems.map((item) => (
@@ -45,21 +45,23 @@ export const Layout = () => {
                     ))}
                 </div>
 
-                <a
-                    href="https://ko-fi.com/carlotadelavega"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.donationLink}
-                >
-                    <span className={styles.icon}>☕</span>
-                    {!isMobile && <span className={styles.label}>Invítanos un café</span>}
-                </a>
+                {!isMobile && (
+                    <a
+                        href="https://ko-fi.com/carlotadelavega"
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.donationLink}
+                    >
+                        <span className={styles.icon}>Ko-fi</span>
+                        <span className={styles.label}>Invítanos un café</span>
+                    </a>
+                )}
             </nav>
 
             <div className={styles.mainContent}>
                 <div className={styles.contentWrapper}>
                     <header className={styles.header}>
-                        <h1>🌾 SDV</h1>
+                        <h1>Stardew Valley Tracker</h1>
                         <div className={styles.seasonBadge}>
                             <strong>{SEASON_TRANSLATIONS[currentSeason]}</strong>
                         </div>

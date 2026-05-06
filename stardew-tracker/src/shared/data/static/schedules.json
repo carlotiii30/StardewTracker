@@ -1,0 +1,21 @@
+{
+    "Marnie": {
+        "closed": [
+            "Monday",
+            "Tuesday"
+        ],
+        "note": "Marnie cierra los lunes y martes."
+    },
+    "Pierre": {
+        "closed": [
+            "Wednesday"
+        ],
+        "note": "Pierre cierra los miércoles (hasta completar el Centro Cívico)."
+    },
+    "Clint": {
+        "closed": [
+            "Friday"
+        ],
+        "note": "Clint se va al Centro Cívico los viernes si está reparado."
+    }
+}
