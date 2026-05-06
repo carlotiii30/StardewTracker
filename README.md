@@ -24,7 +24,7 @@ Built with performance and scalability in mind:
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/carlotiii30/StardewTracker.git
-    cd StardewTracker
+    cd StardewTracker/stardew-tracker
     ```
 
 2.  **Install dependencies:**
