@@ -2,55 +2,107 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .alertCard {
     display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 12px 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 12px 14px;
     border-radius: 12px;
-    border: 3px solid #5d2e08;
+    border: 2px solid color-mix(in srgb, var(--border) 35%, white 65%);
     animation: slideIn 0.3s ease-out;
 }
 
+.mainInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.text {
+    flex: 1;
+}
+
 .birthday {
-    background-color: #ffcea6;
+    background-color: color-mix(in srgb, var(--accent) 16%, #fff4ef 84%);
 }
 
-.gifts {
-    margin: 5px 0 0 0;
-    font-size: 0.8rem;
-    color: #5d2e08;
-    line-height: 1.2;
-    font-style: italic;
+.giftTag {
+    background-color: var(--surface);
+    color: var(--nav-text);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 4px;
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, white 55%);
+    opacity: 1;
 }
 
-.gifts strong {
-    color: #2d1d13;
-    text-transform: uppercase;
-    font-size: 0.7rem;
+.giftsTitle {
+    color: var(--heading);
+    font-weight: bold;
+    margin: 0 0 6px;
 }
 
 .festival {
-    background-color: #b8e0a8;
+    background-color: color-mix(in srgb, #a9dca0 70%, #edfbe8 30%);
 }
 
-.icon {
-    font-size: 1.8rem;
+.eventTypeTag {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.birthdayTag {
+    color: #7a2953;
+    border-color: #d88ab3;
+    background: #ffe4f1;
+}
+
+.festivalTag {
+    color: #21563a;
+    border-color: #78bc90;
+    background: #ddf8e4;
 }
 
 .title {
     margin: 0;
     font-weight: bold;
-    color: #5d2e08;
+    color: var(--heading);
 }
 
-.subtitle {
+.hint {
+    font-size: 0.75rem;
+    color: color-mix(in srgb, var(--nav-text) 75%, white 25%);
+    display: block;
+    margin-top: 4px;
+}
+
+.expanded {
+    border-color: var(--accent);
+}
+
+.giftsContainer {
+    border-top: 1px dashed color-mix(in srgb, var(--border) 35%, white 65%);
+    padding-top: 8px;
+}
+
+.giftList {
+    display: flex;
+    flex-wrap: wrap;
     margin: 0;
-    font-size: 0.85rem;
-    opacity: 0.8;
 }
 
 @keyframes slideIn {

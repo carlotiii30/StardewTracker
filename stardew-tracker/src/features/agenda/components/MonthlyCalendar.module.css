@@ -1,0 +1,254 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background: var(--surface);
+    border: 2px solid color-mix(in srgb, var(--border) 35%, white 65%);
+    border-radius: 14px;
+    padding: 0.9rem;
+}
+
+.headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.filterBtn {
+    background: color-mix(in srgb, var(--surface) 86%, white 14%);
+    border: 1px solid color-mix(in srgb, var(--border) 35%, white 65%);
+    color: var(--nav-text);
+    border-radius: 999px;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+}
+
+.filterBtnActive {
+    background: color-mix(in srgb, var(--accent) 18%, white 82%);
+    border-color: var(--accent);
+}
+
+.title {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--heading);
+}
+
+.caption {
+    margin: 0;
+    font-size: 0.78rem;
+    color: color-mix(in srgb, var(--nav-text) 75%, white 25%);
+}
+
+.weekHeader {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.4rem;
+}
+
+.weekDay {
+    text-align: center;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: color-mix(in srgb, var(--nav-text) 72%, white 28%);
+    font-weight: 700;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.4rem;
+    align-items: stretch;
+}
+
+.dayCellWrap {
+    position: relative;
+    width: 100%;
+}
+
+.dayCell {
+    width: 100%;
+    aspect-ratio: 1.12 / 1;
+    border-radius: 10px;
+    border: 1px solid color-mix(in srgb, var(--border) 30%, white 70%);
+    background: color-mix(in srgb, var(--surface) 92%, white 8%);
+    color: var(--nav-text);
+    padding: 0.38rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.dayCell:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.selected {
+    border: 2px solid var(--accent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 35%, white 65%);
+}
+
+.dayNumber {
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.markers {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 10px;
+}
+
+.marker {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    display: inline-block;
+}
+
+.birthday {
+    background: #f89ac8;
+    border-color: #ca6f9d;
+}
+
+.festival {
+    background: #7ccf8d;
+    border-color: #569967;
+}
+
+.tasks {
+    background: #7faef0;
+    border-color: #547eb8;
+}
+
+.tooltipCard {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%);
+    min-width: 220px;
+    max-width: 260px;
+    background: color-mix(in srgb, var(--surface) 86%, white 14%);
+    border: 2px solid color-mix(in srgb, var(--border) 36%, white 64%);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(30, 30, 30, 0.16);
+    padding: 0.5rem;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.tooltipCard::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: calc(100% - 1px);
+    width: 10px;
+    height: 10px;
+    transform: translateX(-50%) rotate(45deg);
+    background: color-mix(in srgb, var(--surface) 86%, white 14%);
+    border-right: 2px solid color-mix(in srgb, var(--border) 36%, white 64%);
+    border-bottom: 2px solid color-mix(in srgb, var(--border) 36%, white 64%);
+}
+
+.tooltipTitle {
+    margin: 0 0 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--heading);
+}
+
+.tooltipLine {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.71rem;
+    color: color-mix(in srgb, var(--nav-text) 84%, white 16%);
+    line-height: 1.35;
+}
+
+.tooltipLine+.tooltipLine {
+    margin-top: 0.25rem;
+}
+
+.tooltipTag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 800;
+    padding: 0.15rem 0.4rem;
+    white-space: nowrap;
+}
+
+.birthdayTag {
+    color: #7a2953;
+    border-color: #d88ab3;
+    background: #ffe4f1;
+}
+
+.festivalTag {
+    color: #21563a;
+    border-color: #78bc90;
+    background: #ddf8e4;
+}
+
+.tasksTag {
+    color: #24466b;
+    border-color: #7faef0;
+    background: #dbe9ff;
+}
+
+.legend {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.legendItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    color: color-mix(in srgb, var(--nav-text) 80%, white 20%);
+}
+
+.emptyFilterState {
+    margin: 0;
+    font-size: 0.75rem;
+    color: color-mix(in srgb, var(--nav-text) 75%, white 25%);
+}
+
+@media (max-width: 640px) {
+    .tooltipCard {
+        display: none;
+    }
+}

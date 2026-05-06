@@ -1,14 +1,31 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.2rem;
+}
+
+.container h2 {
+    margin: 0;
+    color: var(--heading);
 }
 
 .section {
-    background: #5d2e08;
+    background: var(--surface);
     padding: 1.5rem;
-    border-radius: 12px;
-    border: 3px solid #7a431d;
+    border-radius: 14px;
+    border: 2px solid color-mix(in srgb, var(--border) 35%, white 65%);
+}
+
+.section h3,
+.donationSection h3 {
+    margin-top: 0;
+    color: var(--heading);
+}
+
+.section p,
+.donationSection p {
+    margin: 0;
+    color: color-mix(in srgb, var(--nav-text) 82%, white 18%);
 }
 
 .buttonGroup {
@@ -20,42 +37,67 @@
 
 .saveBtn,
 .uploadBtn {
-    background: #b8e0a8;
-    color: #2d1d13;
-    padding: 12px 20px;
-    border-radius: 8px;
-    border: none;
+    background: color-mix(in srgb, var(--accent) 30%, white 70%);
+    color: var(--heading);
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 2px solid color-mix(in srgb, var(--accent) 45%, white 55%);
     font-weight: bold;
     cursor: pointer;
     text-align: center;
     flex: 1;
     min-width: 150px;
+    transition: transform 0.15s ease, border-color 0.15s ease;
 }
 
 .saveBtn:hover,
 .uploadBtn:hover {
-    background: #a4cc94;
+    border-color: var(--accent);
     transform: translateY(-2px);
+}
+
+.issueInput {
+    width: 100%;
+    margin-top: 1rem;
+    border: 2px solid color-mix(in srgb, var(--border) 45%, white 55%);
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--surface) 90%, white 10%);
+    color: var(--heading);
+    padding: 0.8rem 0.9rem;
+    resize: vertical;
+    font: inherit;
+}
+
+.issueInput:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.statusText {
+    margin-top: 0.8rem;
+    color: var(--heading);
+    font-size: 0.95rem;
 }
 
 .donationSection {
     text-align: center;
-    border: 2px dashed #ffcea6;
-    padding: 2rem;
-    border-radius: 12px;
+    border: 2px dashed color-mix(in srgb, var(--accent) 55%, white 45%);
+    background: var(--surface);
+    padding: 1.5rem;
+    border-radius: 14px;
 }
 
 .kofiBtn {
     display: inline-block;
-    background: #29abe0;
+    background: #39a1d6;
     color: white;
     text-decoration: none;
-    padding: 15px 30px;
+    padding: 12px 20px;
     border-radius: 30px;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-top: 1rem;
-    box-shadow: 0 4px 0 #1b7499;
+    box-shadow: 0 4px 0 #2b7da8;
 }
 
 .kofiBtn:active {

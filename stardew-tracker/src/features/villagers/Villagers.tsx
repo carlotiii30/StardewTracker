@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import villagersData from '../../core/data/static/villagers.json';
+import villagersData from '@shared/data/static/villagers.json';
+import { getItemImagePath } from '@shared/utils/itemImages';
 import styles from './Villagers.module.css';
 
 export const Villagers = () => {
@@ -14,23 +15,10 @@ export const Villagers = () => {
     );
   });
 
-  const getSafeFileName = (text: string) => {
-    return text
-      .toLowerCase()
-      .replaceAll('á', 'a')
-      .replaceAll('é', 'e')
-      .replaceAll('í', 'i')
-      .replaceAll('ó', 'o')
-      .replaceAll('ú', 'u')
-      .replaceAll('ñ', 'n')
-      .replaceAll(' ', '_')
-      .replaceAll(',', '');
-  };
-
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h2>Aldeanos y Regalos 🎁</h2>
+        <h2>Aldeanos y Regalos</h2>
         <input
           type="text"
           placeholder="Busca por nombre o por regalo (ej: Diamante)..."
@@ -68,7 +56,7 @@ export const Villagers = () => {
                         className={`${styles.giftItem} ${isHighlight ? styles.highlight : ''}`}
                       >
                         <img
-                          src={`/items/${getSafeFileName(gift)}.png`}
+                          src={getItemImagePath(gift)}
                           alt={gift}
                           className={styles.giftIcon}
                           onError={(e) => (e.currentTarget.style.display = 'none')}

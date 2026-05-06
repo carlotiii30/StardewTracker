@@ -1,0 +1,1137 @@
+{
+    "rooms": [
+        {
+            "id": "pantry",
+            "name": "Despensa",
+            "bundles": [
+                {
+                    "id": "spring_crops",
+                    "name": "Lote Cultivos de Primavera",
+                    "reward": "Acelerador básico (20)",
+                    "items": [
+                        {
+                            "id": "spring_crops_chirivia",
+                            "name": "Chirivía",
+                            "season": [
+                                "spring"
+                            ]
+                        },
+                        {
+                            "id": "spring_crops_coliflor",
+                            "name": "Coliflor",
+                            "season": [
+                                "spring"
+                            ]
+                        },
+                        {
+                            "id": "spring_crops_judias_verdes",
+                            "name": "Judías verdes",
+                            "season": [
+                                "spring"
+                            ]
+                        },
+                        {
+                            "id": "spring_crops_patata",
+                            "name": "Patata",
+                            "season": [
+                                "spring"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "summer_crops",
+                    "name": "Lote Cultivos de Verano",
+                    "reward": "Aspersor de calidad (1)",
+                    "items": [
+                        {
+                            "id": "summer_crops_tomate",
+                            "name": "Tomate",
+                            "season": [
+                                "summer"
+                            ]
+                        },
+                        {
+                            "id": "summer_crops_ajies",
+                            "name": "Chile",
+                            "season": [
+                                "summer"
+                            ]
+                        },
+                        {
+                            "id": "summer_crops_arandano",
+                            "name": "Arándano",
+                            "season": [
+                                "summer"
+                            ]
+                        },
+                        {
+                            "id": "summer_crops_melon",
+                            "name": "Melón",
+                            "season": [
+                                "summer"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "fall_crops",
+                    "name": "Lote Cultivos de Otoño",
+                    "reward": "Colmena (1)",
+                    "items": [
+                        {
+                            "id": "fall_crops_maiz",
+                            "name": "Maíz",
+                            "season": [
+                                "summer",
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "fall_crops_berenjena",
+                            "name": "Berenjena",
+                            "season": [
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "fall_crops_calabaza",
+                            "name": "Calabaza",
+                            "season": [
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "fall_crops_boniato",
+                            "name": "Ñame",
+                            "season": [
+                                "fall"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "quality_crops",
+                    "name": "Lote Cultivos de Calidad",
+                    "reward": "Envasadora (1)",
+                    "items": [
+                        {
+                            "id": "quality_crops_chirivia_oro",
+                            "name": "Chirivía (oro)",
+                            "season": [
+                                "spring"
+                            ],
+                            "quality": "gold",
+                            "amount": 5
+                        },
+                        {
+                            "id": "quality_crops_melon_oro",
+                            "name": "Melón (oro)",
+                            "season": [
+                                "summer"
+                            ],
+                            "quality": "gold",
+                            "amount": 5
+                        },
+                        {
+                            "id": "quality_crops_calabaza_oro",
+                            "name": "Calabaza (oro)",
+                            "season": [
+                                "fall"
+                            ],
+                            "quality": "gold",
+                            "amount": 5
+                        },
+                        {
+                            "id": "quality_crops_maiz_oro",
+                            "name": "Maíz (oro)",
+                            "season": [
+                                "summer",
+                                "fall"
+                            ],
+                            "quality": "gold",
+                            "amount": 5
+                        }
+                    ]
+                },
+                {
+                    "id": "animal_bundle",
+                    "name": "Lote Origen Animal",
+                    "reward": "Prensa de queso (1)",
+                    "items": [
+                        {
+                            "id": "animal_bundle_leche_xxl",
+                            "name": "Leche XXL",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "animal_bundle_huevo_xxl_marron",
+                            "name": "Huevo XXL marrón",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "animal_bundle_huevo_xxl",
+                            "name": "Huevo XXL",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "animal_bundle_leche_cabra_xxl",
+                            "name": "Leche de cabra XXL",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "animal_bundle_lana",
+                            "name": "Lana",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "animal_bundle_huevo_pato",
+                            "name": "Huevo de pato",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "artisan_bundle",
+                    "name": "Lote Origen Artesanal",
+                    "reward": "Barril (1)",
+                    "items": [
+                        {
+                            "id": "artisan_bundle_aceite_trufa",
+                            "name": "Aceite de trufa",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "artisan_bundle_tela",
+                            "name": "Tela",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "artisan_bundle_queso_cabra",
+                            "name": "Queso de cabra",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "artisan_bundle_queso",
+                            "name": "Queso",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "artisan_bundle_miel",
+                            "name": "Miel",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "artisan_bundle_mermelada",
+                            "name": "Mermelada",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "artisan_bundle_manzana",
+                            "name": "Manzana",
+                            "season": [
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "artisan_bundle_albaricoque",
+                            "name": "Albaricoque",
+                            "season": [
+                                "spring"
+                            ]
+                        },
+                        {
+                            "id": "artisan_bundle_naranja",
+                            "name": "Naranja",
+                            "season": [
+                                "summer"
+                            ]
+                        },
+                        {
+                            "id": "artisan_bundle_melocoton",
+                            "name": "Melocotón",
+                            "season": [
+                                "summer"
+                            ]
+                        },
+                        {
+                            "id": "artisan_bundle_granada",
+                            "name": "Granada",
+                            "season": [
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "artisan_bundle_cereza",
+                            "name": "Cereza",
+                            "season": [
+                                "spring"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "fish_tank",
+            "name": "Pecera",
+            "bundles": [
+                {
+                    "id": "river_fish",
+                    "name": "Lote Peces Fluviales",
+                    "reward": "Cebo de lujo (30)",
+                    "items": [
+                        {
+                            "id": "river_fish_pez_sol",
+                            "name": "Pez sol",
+                            "season": [
+                                "spring",
+                                "summer"
+                            ]
+                        },
+                        {
+                            "id": "river_fish_pez_gato",
+                            "name": "Pez gato",
+                            "season": [
+                                "spring",
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "river_fish_sabalo",
+                            "name": "Sábalo",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "river_fish_trucha_tigre",
+                            "name": "Trucha tigre",
+                            "season": [
+                                "fall",
+                                "winter"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "lake_fish",
+                    "name": "Lote Peces de Lago",
+                    "reward": "Girador disfrazado (1)",
+                    "items": [
+                        {
+                            "id": "lake_fish_perca",
+                            "name": "Perca",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "lake_fish_carpa",
+                            "name": "Carpa",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "lake_fish_siluro",
+                            "name": "Siluro",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "lake_fish_esturion",
+                            "name": "Esturión",
+                            "season": [
+                                "summer",
+                                "winter"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "ocean_fish",
+                    "name": "Lote Peces Marinos",
+                    "reward": "Tótem de viaje: Playa (5)",
+                    "items": [
+                        {
+                            "id": "ocean_fish_sardina",
+                            "name": "Sardina",
+                            "season": [
+                                "spring",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "ocean_fish_atun",
+                            "name": "Atún",
+                            "season": [
+                                "summer",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "ocean_fish_pargo_colorado",
+                            "name": "Pargo colorado",
+                            "season": [
+                                "summer",
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "ocean_fish_tilapia",
+                            "name": "Tilapia",
+                            "season": [
+                                "summer",
+                                "fall"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "night_fishing",
+                    "name": "Lote Peces Nocturnos",
+                    "reward": "Anillo brillante (1)",
+                    "items": [
+                        {
+                            "id": "night_fishing_lucio",
+                            "name": "Lucio",
+                            "season": [
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "night_fishing_besugo",
+                            "name": "Besugo",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "night_fishing_anguila",
+                            "name": "Anguila",
+                            "season": [
+                                "spring",
+                                "fall"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "crab_pot",
+                    "name": "Lote Trampa para Cangrejos",
+                    "reward": "Trampa para cangrejos (3)",
+                    "items": [
+                        {
+                            "id": "crab_pot_langosta",
+                            "name": "Langosta"
+                        },
+                        {
+                            "id": "crab_pot_cangrejo_rio",
+                            "name": "Cangrejo de río"
+                        },
+                        {
+                            "id": "crab_pot_cangrejo",
+                            "name": "Cangrejo"
+                        },
+                        {
+                            "id": "crab_pot_berberecho",
+                            "name": "Berberecho"
+                        },
+                        {
+                            "id": "crab_pot_mejillon",
+                            "name": "Mejillón"
+                        },
+                        {
+                            "id": "crab_pot_gamba",
+                            "name": "Gamba"
+                        },
+                        {
+                            "id": "crab_pot_caracol",
+                            "name": "Caracol"
+                        },
+                        {
+                            "id": "crab_pot_bigaro",
+                            "name": "Bígaro"
+                        },
+                        {
+                            "id": "crab_pot_ostra",
+                            "name": "Ostra"
+                        },
+                        {
+                            "id": "crab_pot_almeja",
+                            "name": "Almeja"
+                        }
+                    ]
+                },
+                {
+                    "id": "specialty_fish",
+                    "name": "Lote Peces Especiales",
+                    "reward": "Plato de alta mar (5)",
+                    "items": [
+                        {
+                            "id": "specialty_fish_pez_globo",
+                            "name": "Pez globo",
+                            "season": [
+                                "summer"
+                            ]
+                        },
+                        {
+                            "id": "specialty_fish_pez_fantasma",
+                            "name": "Pez fantasma",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "specialty_fish_lenguado",
+                            "name": "Lenguado",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "specialty_fish_muyu",
+                            "name": "Muyu",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "boiler_room",
+            "name": "Caldera",
+            "bundles": [
+                {
+                    "id": "blacksmith_bundle",
+                    "name": "Lote Herrero",
+                    "reward": "Horno (1)",
+                    "items": [
+                        {
+                            "id": "blacksmith_bundle_cobre",
+                            "name": "Lingote de cobre"
+                        },
+                        {
+                            "id": "blacksmith_bundle_hierro",
+                            "name": "Lingote de hierro"
+                        },
+                        {
+                            "id": "blacksmith_bundle_oro",
+                            "name": "Lingote de oro"
+                        }
+                    ]
+                },
+                {
+                    "id": "geologist_bundle",
+                    "name": "Lote Geólogo",
+                    "reward": "Omnigeoda (5)",
+                    "items": [
+                        {
+                            "id": "geologist_bundle_cuarzo",
+                            "name": "Cuarzo"
+                        },
+                        {
+                            "id": "geologist_bundle_cristal_terrestre",
+                            "name": "Cristal terrestre"
+                        },
+                        {
+                            "id": "geologist_bundle_lagrima_helada",
+                            "name": "Lágrima helada"
+                        },
+                        {
+                            "id": "geologist_bundle_cuarzo_fuego",
+                            "name": "Cuarzo de fuego"
+                        }
+                    ]
+                },
+                {
+                    "id": "adventurer_bundle",
+                    "name": "Lote Aventurero",
+                    "reward": "Pequeño anillo magnético (1)",
+                    "items": [
+                        {
+                            "id": "adventurer_bundle_baba",
+                            "name": "Baba",
+                            "amount": 99
+                        },
+                        {
+                            "id": "adventurer_bundle_ala_murcielago",
+                            "name": "Ala de murciélago",
+                            "amount": 10
+                        },
+                        {
+                            "id": "adventurer_bundle_esencia_solar",
+                            "name": "Esencia solar"
+                        },
+                        {
+                            "id": "adventurer_bundle_esencia_sombria",
+                            "name": "Esencia sombría"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "bulletin_board",
+            "name": "Tablón",
+            "bundles": [
+                {
+                    "id": "chef_bundle",
+                    "name": "Lote Chef",
+                    "reward": "Pastel rosa (3)",
+                    "items": [
+                        {
+                            "id": "chef_bundle_jarabe_arce",
+                            "name": "Jarabe de arce",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "chef_bundle_helecho",
+                            "name": "Helecho",
+                            "season": [
+                                "summer"
+                            ]
+                        },
+                        {
+                            "id": "chef_bundle_trufa",
+                            "name": "Trufa",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "chef_bundle_amapola",
+                            "name": "Amapola",
+                            "season": [
+                                "summer"
+                            ]
+                        },
+                        {
+                            "id": "chef_bundle_rollitos_maki",
+                            "name": "Rollitos maki",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "chef_bundle_huevo_frito",
+                            "name": "Huevo frito",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "tinte_bundle",
+                    "name": "Lote Tinte",
+                    "reward": "Semilladora (1)",
+                    "items": [
+                        {
+                            "id": "tinte_bundle_seta_roja",
+                            "name": "Seta roja",
+                            "season": [
+                                "summer",
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "tinte_bundle_erizo_mar",
+                            "name": "Erizo de mar",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "tinte_bundle_girasol",
+                            "name": "Girasol",
+                            "season": [
+                                "summer",
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "tinte_bundle_pluma_de_pato",
+                            "name": "Pluma de pato",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "tinte_bundle_aguamarina",
+                            "name": "Aguamarina",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "tinte_bundle_lombarda",
+                            "name": "Lombarda",
+                            "season": [
+                                "summer"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "campo_bundle",
+                    "name": "Lote Estudio de Campo",
+                    "reward": "Máquina recicladora (1)",
+                    "items": [
+                        {
+                            "id": "campo_bundle_seta_lila",
+                            "name": "Seta lila",
+                            "season": [
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "campo_bundle_concha_de_nautilo",
+                            "name": "Concha de nautilo",
+                            "season": [
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "campo_bundle_barbo",
+                            "name": "Barbo",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "campo_bundle_geoda_de_hielo",
+                            "name": "Geoda de hielo",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "pienso_bundle",
+                    "name": "Lote Pienso",
+                    "reward": "Radiador (1)",
+                    "items": [
+                        {
+                            "id": "pienso_bundle_trigo",
+                            "name": "Trigo",
+                            "amount": 10,
+                            "season": [
+                                "summer",
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "pienso_bundle_heno",
+                            "name": "Heno",
+                            "amount": 10,
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "pienso_bundle_manzana",
+                            "name": "Manzana",
+                            "amount": 3,
+                            "season": [
+                                "fall"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "encantador_bundle",
+                    "name": "Lote Encantador",
+                    "reward": "Lingote de oro (5)",
+                    "items": [
+                        {
+                            "id": "encantador_bundle_resina_de_roble",
+                            "name": "Resina de roble",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "encantador_bundle_vino",
+                            "name": "Vino",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "encantador_bundle_pata_de_conejo",
+                            "name": "Pata de conejo",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "encantador_bundle_granada",
+                            "name": "Granada",
+                            "season": [
+                                "fall"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "crafts_room",
+            "name": "Sala de manualidades",
+            "bundles": [
+                {
+                    "id": "spring_foraging",
+                    "name": "Lote Recolección Primaveral",
+                    "reward": "Semillas primaverales (30)",
+                    "items": [
+                        {
+                            "id": "spring_foraging_rabano_silvestre",
+                            "name": "Rábano silvestre",
+                            "season": [
+                                "spring"
+                            ]
+                        },
+                        {
+                            "id": "spring_foraging_narciso",
+                            "name": "Narciso",
+                            "season": [
+                                "spring"
+                            ]
+                        },
+                        {
+                            "id": "spring_foraging_puerro",
+                            "name": "Puerro",
+                            "season": [
+                                "spring"
+                            ]
+                        },
+                        {
+                            "id": "spring_foraging_diente_de_leon",
+                            "name": "Diente de león",
+                            "season": [
+                                "spring"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "summer_foraging",
+                    "name": "Lote Recolección Veraniega",
+                    "reward": "Semillas veraniegas (30)",
+                    "items": [
+                        {
+                            "id": "summer_foraging_uva",
+                            "name": "Uva",
+                            "season": [
+                                "summer",
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "summer_foraging_baya_especiada",
+                            "name": "Baya especiada",
+                            "season": [
+                                "summer"
+                            ]
+                        },
+                        {
+                            "id": "summer_foraging_guisante_dulce",
+                            "name": "Guisante dulce",
+                            "season": [
+                                "summer"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "fall_foraging",
+                    "name": "Lote Recolección Otoñal",
+                    "reward": "Semillas otoñales (30)",
+                    "items": [
+                        {
+                            "id": "fall_foraging_seta_comun",
+                            "name": "Seta común",
+                            "season": [
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "fall_foraging_ciruela_salvaje",
+                            "name": "Ciruela salvaje",
+                            "season": [
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "fall_foraging_avellana",
+                            "name": "Avellana",
+                            "season": [
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "fall_foraging_mora",
+                            "name": "Mora",
+                            "season": [
+                                "fall"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "winter_foraging",
+                    "name": "Lote Recolección Invernal",
+                    "reward": "Semillas invernales (30)",
+                    "items": [
+                        {
+                            "id": "winter_foraging_raiz_invernal",
+                            "name": "Raíz invernal",
+                            "season": [
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "winter_foraging_fruta_de_cristal",
+                            "name": "Fruta de cristal",
+                            "season": [
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "winter_foraging_name_nival",
+                            "name": "Ñame nival",
+                            "season": [
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "winter_foraging_azafran",
+                            "name": "Azafrán",
+                            "season": [
+                                "winter"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "construction_bundle",
+                    "name": "Lote Construcción",
+                    "reward": "Horno de carbón (1)",
+                    "items": [
+                        {
+                            "id": "construction_bundle_madera",
+                            "name": "Madera",
+                            "amount": 99
+                        },
+                        {
+                            "id": "construction_bundle_piedra",
+                            "name": "Piedra",
+                            "amount": 99
+                        },
+                        {
+                            "id": "construction_bundle_madera_noble",
+                            "name": "Madera noble",
+                            "amount": 10
+                        }
+                    ]
+                },
+                {
+                    "id": "exotic_foraging",
+                    "name": "Lote Recolección Exótica",
+                    "reward": "Botín otoñal (5)",
+                    "items": [
+                        {
+                            "id": "exotic_foraging_coco",
+                            "name": "Coco"
+                        },
+                        {
+                            "id": "exotic_foraging_higo_chumbo",
+                            "name": "Higo chumbo"
+                        },
+                        {
+                            "id": "exotic_foraging_zanahoria_cavernaria",
+                            "name": "Zanahoria cavernaria"
+                        },
+                        {
+                            "id": "exotic_foraging_seta_roja",
+                            "name": "Seta roja",
+                            "season": [
+                                "summer",
+                                "fall"
+                            ]
+                        },
+                        {
+                            "id": "exotic_foraging_seta_lila",
+                            "name": "Seta lila"
+                        },
+                        {
+                            "id": "exotic_foraging_jarabe_de_arce",
+                            "name": "Jarabe de arce",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "exotic_foraging_resina_de_roble",
+                            "name": "Resina de roble",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "exotic_foraging_brea_de_pino",
+                            "name": "Brea de pino",
+                            "season": [
+                                "spring",
+                                "summer",
+                                "fall",
+                                "winter"
+                            ]
+                        },
+                        {
+                            "id": "exotic_foraging_colmenilla",
+                            "name": "Colmenilla",
+                            "season": [
+                                "spring"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

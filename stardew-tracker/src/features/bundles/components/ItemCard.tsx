@@ -1,4 +1,4 @@
-import { useGameStore } from '../../../core/store/useGameStore';
+import { useProgressStore } from '@shared/store/useProgressStore';
 import styles from './ItemCard.module.css';
 
 interface ItemProps {
@@ -8,8 +8,8 @@ interface ItemProps {
 }
 
 export const ItemCard = ({ id, name, imageSrc }: ItemProps) => {
-  const donatedItems = useGameStore((state) => state.donatedItems);
-  const toggleItem = useGameStore((state) => state.toggleItem);
+  const donatedItems = useProgressStore((state) => state.donatedItems);
+  const toggleItem = useProgressStore((state) => state.toggleItem);
 
   const isCompleted = donatedItems.includes(id);
 
@@ -20,7 +20,7 @@ export const ItemCard = ({ id, name, imageSrc }: ItemProps) => {
     >
       <div className={styles.iconContainer}>
         <img src={imageSrc} alt={name} />
-        {isCompleted && <span className={styles.check}>✅</span>}
+        {isCompleted && <span className={styles.check}>Listo</span>}
       </div>
       <span className={styles.name}>{name}</span>
     </div>

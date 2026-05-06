@@ -1,30 +1,71 @@
-import { useGameStore } from '../../core/store/useGameStore';
+import { useRef } from 'react';
+import { SEASON_TRANSLATIONS, SEASONS } from '@shared/constants';
+import schedules from '@shared/data/static/schedules.json';
+import { useProgressStore } from '@shared/store/useProgressStore';
+import { useAgendaStore } from '@shared/store/useAgendaStore';
 import styles from './Agenda.module.css';
-import { SEASON_TRANSLATIONS, SEASONS } from '../../core/constants';
-import { DaySelector } from './components/DaySelector';
 import { DailyAlerts } from './components/DailyAlerts';
+import { MonthlyCalendar } from './components/MonthlyCalendar';
+
+type BusinessSchedule = {
+    closed: string[];
+    note: string;
+};
+
+type SchedulesMap = Record<string, BusinessSchedule>;
 
 export const Agenda = () => {
-    const currentSeason = useGameStore((state) => state.currentSeason);
-    const setSeason = useGameStore((state) => state.setSeason);
-    const day = useGameStore((state) => state.day);
-    const tasks = useGameStore((state) => state.tasks);
-    const addTask = useGameStore((state) => state.addTask);
-    const toggleTask = useGameStore((state) => state.toggleTask);
-    const deleteTask = useGameStore((state) => state.deleteTask);
-    const moveTaskToNextDay = useGameStore((state) => state.moveTaskToNextDay);
+    const taskInputRef = useRef<HTMLInputElement>(null);
+    const currentSeason = useProgressStore((state) => state.currentSeason);
+    const setSeason = useProgressStore((state) => state.setSeason);
+    const day = useProgressStore((state) => state.day);
+    const setDay = useProgressStore((state) => state.setDay);
+    const tasks = useAgendaStore((state) => state.tasks);
+    const addTask = useAgendaStore((state) => state.addTask);
+    const toggleTask = useAgendaStore((state) => state.toggleTask);
+    const deleteTask = useAgendaStore((state) => state.deleteTask);
+    const moveTaskToNextDay = useAgendaStore((state) => state.moveTaskToNextDay);
 
-    const handleAddTask = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter') {
-            const input = e.currentTarget;
-            if (input.value.trim()) {
-                addTask(input.value);
-                input.value = '';
-            }
+    const submitTask = (input: HTMLInputElement) => {
+        if (input.value.trim()) {
+            addTask(input.value);
+            input.value = '';
         }
     };
 
-    const dailyTasks = tasks.filter(t => t.season === currentSeason && t.day === day);
+    const handleAddTask = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            submitTask(e.currentTarget);
+        }
+    };
+
+    const handleAddTaskFromButton = () => {
+        if (taskInputRef.current) {
+            submitTask(taskInputRef.current);
+            taskInputRef.current.focus();
+        }
+    };
+
+    const checkTaskWarning = (text: string, day: number) => {
+        const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        const dayName = daysOfWeek[(day - 1) % 7];
+
+        const businessNames = Object.keys(schedules);
+        const foundBusiness = businessNames.find(name =>
+            text.toLowerCase().includes(name.toLowerCase())
+        );
+
+        if (foundBusiness) {
+            const info = (schedules as SchedulesMap)[foundBusiness];
+            if (info.closed.includes(dayName)) {
+                return info.note;
+            }
+        }
+        return null;
+    };
+
+    const seasonTasks = tasks.filter(t => t.season === currentSeason);
+    const dailyTasks = seasonTasks.filter(t => t.day === day);
 
     return (
         <div className={styles.agendaContainer}>
@@ -40,17 +81,17 @@ export const Agenda = () => {
                             src={`/seasons/${s}.png`}
                             alt={SEASON_TRANSLATIONS[s]}
                             className={styles.seasonIcon}
-                            onError={(e) => {
-                                e.currentTarget.style.display = 'none';
-                                e.currentTarget.parentElement!.innerHTML =
-                                    s === 'spring' ? '🌸' : s === 'summer' ? '☀️' : s === 'fall' ? '🍁' : '❄️';
-                            }}
                         />
                     </button>
                 ))}
             </section>
 
-            <DaySelector />
+            <MonthlyCalendar
+                currentSeason={currentSeason}
+                selectedDay={day}
+                onSelectDay={setDay}
+                tasks={seasonTasks}
+            />
 
             <section className={styles.todaySection}>
                 <h3 className={styles.sectionTitle}>
@@ -64,45 +105,71 @@ export const Agenda = () => {
             <section className={styles.tasksSection}>
                 <h3 className={styles.sectionTitle}>Notas del día</h3>
                 <div className={styles.inputWrapper}>
-                    <span className={styles.inputIcon}>✍️</span>
+                    <span className={styles.inputIcon}>Nota</span>
                     <input
+                        ref={taskInputRef}
                         type="text"
                         placeholder="Añadir recordatorio para hoy..."
                         onKeyDown={handleAddTask}
                         className={styles.taskInput}
                     />
+                    <button
+                        type="button"
+                        onClick={handleAddTaskFromButton}
+                        className={styles.addBtn}
+                        aria-label="Registrar nota"
+                    >
+                        Registrar
+                    </button>
                 </div>
 
                 <div className={styles.taskList}>
                     {dailyTasks.length === 0 ? (
                         <p className={styles.emptyState}>No hay notas para este día.</p>
                     ) : (
-                        dailyTasks.map(task => (
-                            <div key={task.id} className={styles.taskWrapper}>
-                                <div
-                                    onClick={() => toggleTask(task.id)}
-                                    className={`${styles.taskItem} ${task.completed ? styles.completed : ''}`}
-                                >
-                                    <span className={styles.checkIcon}>
-                                        {task.completed ? '✅' : '⬜'}
-                                    </span>
-                                    <span className={styles.taskText}>{task.text}</span>
+                        dailyTasks.map(task => {
+                            const warning = checkTaskWarning(task.text, day);
+
+                            return (
+                                <div key={task.id} className={styles.taskContainer}>
+                                    <div className={styles.taskWrapper}>
+                                        <div
+                                            onClick={() => toggleTask(task.id)}
+                                            className={`${styles.taskItem} ${task.completed ? styles.completed : ''}`}
+                                        >
+                                            <span
+                                                className={`${styles.checkIcon} ${task.completed ? styles.checkDone : ''}`}
+                                                aria-hidden="true"
+                                            />
+                                            <span className={styles.taskText}>{task.text}</span>
+                                        </div>
+                                        <div className={styles.actions}>
+                                            <button
+                                                onClick={() => moveTaskToNextDay(task.id)}
+                                                className={styles.moveBtn}
+                                                title="Pasar a mañana"
+                                            >
+                                                Mover
+                                            </button>
+                                            <button
+                                                onClick={() => deleteTask(task.id)}
+                                                className={styles.deleteBtn}
+                                                title="Borrar tarea"
+                                            >
+                                                Borrar
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {warning && !task.completed && (
+                                        <div className={styles.smartWarning}>
+                                            <span className={styles.warningIcon}>Aviso</span>
+                                            <p className={styles.warningText}>{warning}</p>
+                                        </div>
+                                    )}
                                 </div>
-                                <button
-                                    onClick={() => moveTaskToNextDay(task.id)}
-                                    className={styles.moveBtn}
-                                    title="Pasar a mañana"
-                                >
-                                    ➡️
-                                </button>
-                                <button
-                                    onClick={() => deleteTask(task.id)}
-                                    className={styles.deleteBtn}
-                                >
-                                    🗑️
-                                </button>
-                            </div>
-                        ))
+                            );
+                        })
                     )}
                 </div>
             </section>
