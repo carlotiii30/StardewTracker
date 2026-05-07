@@ -15,30 +15,34 @@ export default defineConfig({
       '@ui': fileURLToPath(new URL('./src/ui', import.meta.url)),
     },
   },
-  plugins: [react(), VitePWA({
-    registerType: 'autoUpdate',
-    devOptions: {
-      enabled: true
-    },
-    manifest: {
-      name: 'Stardew Companion',
-      short_name: 'SDV Tracker',
-      description: 'Tu guía de bolsillo interactiva para Stardew Valley',
-      theme_color: '#5d2e08',
-      background_color: '#ffcea6',
-      display: 'standalone',
-      icons: [
-        {
-          src: '/pwa-192x192.png',
-          sizes: '192x192',
-          type: 'image/png'
-        },
-        {
-          src: '/pwa-512x512.png',
-          sizes: '512x512',
-          type: 'image/png'
-        }
-      ]
-    }
-  }), cloudflare()],
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      devOptions: {
+        enabled: true
+      },
+      manifest: {
+        name: 'Stardew Companion',
+        short_name: 'SDV Tracker',
+        description: 'Tu guía de bolsillo interactiva para Stardew Valley',
+        theme_color: '#5d2e08',
+        background_color: '#ffcea6',
+        display: 'standalone',
+        icons: [
+          {
+            src: '/pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: '/pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      }
+    }),
+    cloudflare(),
+  ],
 })
