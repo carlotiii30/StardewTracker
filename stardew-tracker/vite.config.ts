@@ -3,14 +3,11 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import { fileURLToPath, URL } from 'node:url'
 
-const importModule = new Function(
-  'moduleName',
-  'return import(moduleName)',
-) as (moduleName: string) => Promise<{ cloudflare?: () => PluginOption }>
+const cloudflarePluginModule = '@cloudflare/vite-plugin'
 
 async function loadCloudflarePlugin(): Promise<PluginOption | undefined> {
   try {
-    const cloudflareModule = await importModule('@cloudflare/vite-plugin')
+    const cloudflareModule = await import(cloudflarePluginModule)
     return cloudflareModule.cloudflare?.()
   } catch {
     console.warn(
