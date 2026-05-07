@@ -20,7 +20,6 @@ export const ItemCard = ({ id, name, imageSrc }: ItemProps) => {
     >
       <div className={styles.iconContainer}>
         <img src={imageSrc} alt={name} />
-        {isCompleted && <span className={styles.check}>Listo</span>}
       </div>
       <span className={styles.name}>{name}</span>
     </div>

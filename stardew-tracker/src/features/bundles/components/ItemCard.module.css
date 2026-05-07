@@ -45,17 +45,3 @@
     color: #5d2e08;
     line-height: 1.35;
 }
-
-.check {
-    position: absolute;
-    right: -12px;
-    top: -10px;
-    font-size: 0.58rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background: #2d6e2d;
-    color: #fff;
-    border: 1px solid #1f4e1f;
-    border-radius: 999px;
-    padding: 2px 6px;
-}
