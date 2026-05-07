@@ -1,9 +1,18 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import { createRequire } from 'node:module'
 import { fileURLToPath, URL } from 'node:url'
 
-import { cloudflare } from "@cloudflare/vite-plugin";
+const require = createRequire(import.meta.url)
+const cloudflarePlugin = (() => {
+  try {
+    const { cloudflare } = require('@cloudflare/vite-plugin')
+    return cloudflare()
+  } catch {
+    return null
+  }
+})()
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -43,6 +52,6 @@ export default defineConfig({
         ]
       }
     }),
-    cloudflare(),
+    cloudflarePlugin,
   ],
 })
