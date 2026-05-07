@@ -10,7 +10,7 @@ const cloudflarePlugin = (() => {
     const { cloudflare } = require('@cloudflare/vite-plugin')
     return cloudflare()
   } catch {
-    return null
+    return undefined
   }
 })()
 
@@ -52,6 +52,6 @@ export default defineConfig({
         ]
       }
     }),
-    cloudflarePlugin,
+    ...(cloudflarePlugin ? [cloudflarePlugin] : []),
   ],
 })
