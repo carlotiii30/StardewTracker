@@ -16,6 +16,10 @@ export const Layout = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }, [location.pathname]);
+
     const navItems = [
         { path: '/', label: 'Agenda', iconName: 'agenda' },
         { path: '/bundles', label: 'Lotes', iconName: 'bundles' },
