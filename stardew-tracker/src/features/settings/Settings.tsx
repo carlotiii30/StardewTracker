@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react';
+import { useTranslations } from '@shared/i18n';
 import styles from './Settings.module.css';
 
 export const Settings = () => {
     const [issueSummary, setIssueSummary] = useState('');
     const [reportStatus, setReportStatus] = useState('');
+    const { language, setLanguage, t } = useTranslations();
 
     const diagnosticContext = useMemo(() => {
         const storageRaw = localStorage.getItem('stardew-tracker-storage');
@@ -24,7 +26,7 @@ export const Settings = () => {
 
     const exportData = () => {
         const data = localStorage.getItem('stardew-tracker-storage');
-        if (!data) return alert("No hay datos para guardar");
+        if (!data) return alert(t.settings.noDataToSave);
 
         const blob = new Blob([data], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
@@ -46,33 +48,34 @@ export const Settings = () => {
                 localStorage.setItem('stardew-tracker-storage', content);
                 window.location.reload();
             } catch {
-                alert("Error: El archivo no es válido");
+                alert(t.settings.invalidFile);
             }
         };
         reader.readAsText(file);
     };
 
     const buildReportBody = () => {
-        const title = issueSummary.trim() || 'Sin descripción del error';
+        const title = issueSummary.trim() || t.settings.noDescription;
 
         return [
-            'Reporte de error - Stardew Tracker',
+            t.settings.reportTitle,
             '',
-            'Descripción del problema:',
+            t.settings.reportBodyTitle,
             title,
             '',
-            'Contexto técnico:',
-            `- Fecha: ${diagnosticContext.timestamp}`,
-            `- URL: ${diagnosticContext.url}`,
-            `- Idioma del navegador: ${diagnosticContext.language}`,
-            `- User Agent: ${diagnosticContext.userAgent}`,
-            `- Tamaño del backup local: ${diagnosticContext.storageSize} bytes`
+            t.settings.technicalContextTitle,
+            `- ${t.settings.reportDate}: ${diagnosticContext.timestamp}`,
+            `- ${t.settings.reportUrl}: ${diagnosticContext.url}`,
+            `- ${t.settings.reportBrowserLanguage}: ${diagnosticContext.language}`,
+            `- ${t.settings.reportInterfaceLanguage}: ${language}`,
+            `- ${t.settings.reportUserAgent}: ${diagnosticContext.userAgent}`,
+            `- ${t.settings.reportStorageSize}: ${diagnosticContext.storageSize} bytes`
         ].join('\n');
     };
 
     const reportIssue = async () => {
         if (issueSummary.trim().length < 8) {
-            setReportStatus('Describe el error con al menos 8 caracteres.');
+            setReportStatus(t.settings.reportTooShort);
             return;
         }
 
@@ -82,46 +85,67 @@ export const Settings = () => {
         try {
             if (navigator.share) {
                 await navigator.share({
-                    title: 'Reporte de error - Stardew Tracker',
+                    title: t.settings.reportTitle,
                     text: reportBody,
                     url: shareUrl
                 });
-                setReportStatus('Gracias. El reporte se compartió correctamente.');
+                setReportStatus(t.settings.reportSuccess);
                 setIssueSummary('');
                 return;
             }
 
             await navigator.clipboard.writeText(reportBody);
-            setReportStatus('No hay menu de compartir en este navegador. Copiamos el reporte al portapapeles para que puedas enviarlo.');
+            setReportStatus(t.settings.reportClipboard);
         } catch {
-            setReportStatus('No se pudo enviar el reporte. Intenta de nuevo.');
+            setReportStatus(t.settings.reportFailed);
         }
     };
 
     return (
         <div className={styles.container}>
-            <h2>Configuración y Datos</h2>
+            <h2>{t.settings.title}</h2>
 
             <section className={styles.section}>
-                <h3>Copia de Seguridad</h3>
-                <p>Guarda tu progreso en un archivo para no perderlo si limpias el navegador.</p>
+                <h3>{t.settings.languageTitle}</h3>
+                <p>{t.settings.languageDescription}</p>
                 <div className={styles.buttonGroup}>
-                    <button onClick={exportData} className={styles.saveBtn}> Guardar archivo </button>
+                    <button
+                        type="button"
+                        onClick={() => setLanguage('es')}
+                        className={`${styles.saveBtn} ${language === 'es' ? styles.languageBtnActive : ''}`}
+                    >
+                        {t.settings.spanish}
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => setLanguage('en')}
+                        className={`${styles.saveBtn} ${language === 'en' ? styles.languageBtnActive : ''}`}
+                    >
+                        {t.settings.english}
+                    </button>
+                </div>
+            </section>
+
+            <section className={styles.section}>
+                <h3>{t.settings.backupTitle}</h3>
+                <p>{t.settings.backupDescription}</p>
+                <div className={styles.buttonGroup}>
+                    <button onClick={exportData} className={styles.saveBtn}> {t.settings.saveFile} </button>
 
                     <label className={styles.uploadBtn}>
-                        Cargar archivo
+                        {t.settings.loadFile}
                         <input type="file" accept=".json" onChange={importData} hidden />
                     </label>
                 </div>
             </section>
 
             <section className={styles.section}>
-                <h3>Reportar un error</h3>
-                <p>Si algo falla o está mal, cuéntanos qué, intentaremos solucionarlo lo antes posible.</p>
+                <h3>{t.settings.errorTitle}</h3>
+                <p>{t.settings.errorDescription}</p>
 
                 <textarea
                     className={styles.issueInput}
-                    placeholder="Ejemplo: Al marcar un cultivo para Verano, no se guarda al recargar la página"
+                    placeholder={t.settings.issuePlaceholder}
                     value={issueSummary}
                     onChange={(e) => {
                         setIssueSummary(e.target.value);
@@ -131,22 +155,22 @@ export const Settings = () => {
                 />
 
                 <div className={styles.buttonGroup}>
-                    <button onClick={reportIssue} className={styles.saveBtn}>Enviar reporte</button>
+                    <button onClick={reportIssue} className={styles.saveBtn}>{t.settings.sendReport}</button>
                 </div>
 
                 {reportStatus && <p className={styles.statusText}>{reportStatus}</p>}
             </section>
 
             <section className={styles.donationSection}>
-                <h3>Apoya el proyecto</h3>
-                <p>Somos dos amigas (una informática y una diseñadora) creando esto con mucho amor y café.</p>
+                <h3>{t.settings.supportTitle}</h3>
+                <p>{t.settings.supportDescription}</p>
                 <a
                     href="https://ko-fi.com/carlotadelavega"
                     target="_blank"
                     rel="noreferrer"
                     className={styles.kofiBtn}
                 >
-                    Invítanos a un café (Ko-fi)
+                    {t.settings.coffeeCta}
                 </a>
             </section>
         </div>

@@ -1,12 +1,13 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { SEASON_TRANSLATIONS } from '@shared/constants';
-import { useProgressStore } from '@shared/store/useProgressStore';
 import { useEffect, useState } from 'react';
+import { useTranslations } from '@shared/i18n';
+import { useProgressStore } from '@shared/store/useProgressStore';
 import styles from './Layout.module.css';
 
 export const Layout = () => {
     const currentSeason = useProgressStore((state) => state.currentSeason);
     const location = useLocation();
+    const { language, t, getSeasonLabel } = useTranslations();
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -20,11 +21,15 @@ export const Layout = () => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, [location.pathname]);
 
+    useEffect(() => {
+        document.documentElement.lang = language;
+    }, [language]);
+
     const navItems = [
-        { path: '/', label: 'Agenda', iconName: 'agenda' },
-        { path: '/bundles', label: 'Lotes', iconName: 'bundles' },
-        { path: '/villagers', label: 'Aldeanos', iconName: 'villagers' },
-        { path: '/settings', label: 'Ajustes', iconName: 'settings' },
+        { path: '/', label: t.layout.agenda, iconName: 'agenda' },
+        { path: '/bundles', label: t.layout.bundles, iconName: 'bundles' },
+        { path: '/villagers', label: t.layout.villagers, iconName: 'villagers' },
+        { path: '/settings', label: t.layout.settings, iconName: 'settings' },
     ];
 
     return (
@@ -57,7 +62,7 @@ export const Layout = () => {
                         className={styles.donationLink}
                     >
                         <span className={styles.icon}>Ko-fi</span>
-                        <span className={styles.label}>Invítanos un café</span>
+                        <span className={styles.label}>{t.layout.donation}</span>
                     </a>
                 )}
             </nav>
@@ -65,9 +70,9 @@ export const Layout = () => {
             <div className={styles.mainContent}>
                 <div className={styles.contentWrapper}>
                     <header className={styles.header}>
-                        <h1>Stardew Valley Tracker</h1>
+                        <h1>{t.layout.title}</h1>
                         <div className={styles.seasonBadge}>
-                            <strong>{SEASON_TRANSLATIONS[currentSeason]}</strong>
+                            <strong>{getSeasonLabel(currentSeason)}</strong>
                         </div>
                     </header>
                     <main>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslations } from '@shared/i18n';
 import { useProgressStore } from '@shared/store/useProgressStore';
 import calendarData from '@shared/data/static/calendar.json';
 import villagersData from '@shared/data/static/villagers.json';
@@ -9,6 +10,7 @@ type VillagerGiftsMap = Record<string, string[]>;
 export const DailyAlerts = () => {
     const currentSeason = useProgressStore((state) => state.currentSeason);
     const day = useProgressStore((state) => state.day);
+    const { t } = useTranslations();
 
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
@@ -38,22 +40,22 @@ export const DailyAlerts = () => {
                     >
                         <div className={styles.mainInfo}>
                             <span className={`${styles.eventTypeTag} ${isBirthday ? styles.birthdayTag : styles.festivalTag}`}>
-                                {isBirthday ? 'Cumpleaños' : 'Evento'}
+                                {isBirthday ? t.dailyAlerts.birthdayTag : t.dailyAlerts.festivalTag}
                             </span>
                             <div className={styles.text}>
                                 <p className={styles.title}>
-                                    {isBirthday ? `Cumpleaños de ${event.name}` : `Hoy: ${event.name}`}
+                                    {isBirthday ? t.dailyAlerts.birthdayOf(event.name) : t.dailyAlerts.today(event.name)}
                                 </p>
                                 {isBirthday && (
                                     <span className={styles.hint}>
-                                        {isExpanded ? 'Ocultar regalos' : 'Ver regalos favoritos'}
+                                        {isExpanded ? t.dailyAlerts.hideGifts : t.dailyAlerts.showGifts}
                                     </span>
                                 )}
                             </div>
                         </div>
                         {isExpanded && isBirthday && gifts && (
                             <div className={styles.giftsContainer}>
-                                <p className={styles.giftsTitle}>Regalos favoritos:</p>
+                                <p className={styles.giftsTitle}>{t.dailyAlerts.favoriteGifts}</p>
                                 <div className={styles.giftList}>
                                     {gifts.map((gift: string) => (
                                         <span key={gift} className={styles.giftTag}>

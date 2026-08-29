@@ -1,7 +1,10 @@
 import { useMemo, useState } from 'react';
 import bundlesData from '@shared/data/static/bundles.json';
+import { useTranslations } from '@shared/i18n';
 import { useProgressStore } from '@shared/store/useProgressStore';
+import { getBundleName, getBundleRoomLabel } from '@shared/translations/bundles';
 import { getItemImagePath } from '@shared/utils/itemImages';
+import { getItemLabel } from '@shared/translations/items';
 import { ItemCard } from './components/ItemCard';
 import styles from './Bundles.module.css';
 
@@ -38,13 +41,6 @@ type SeasonFilter = 'all' | Season;
 
 const data = bundlesData as BundlesDataset;
 
-const SEASON_LABELS: Record<Season, string> = {
-  spring: 'Primavera',
-  summer: 'Verano',
-  fall: 'Otoño',
-  winter: 'Invierno',
-};
-
 const getProgressPercent = (completed: number, total: number) => {
   if (total === 0) {
     return 0;
@@ -59,6 +55,7 @@ const getItemImageSrc = (item: BundleItem) => {
 export const Bundles = () => {
   const donatedItems = useProgressStore((state) => state.donatedItems);
   const currentSeason = useProgressStore((state) => state.currentSeason);
+  const { t, language, getSeasonLabel } = useTranslations();
 
   const [activeRoomId, setActiveRoomId] = useState(data.rooms[0]?.id ?? '');
   const [itemFilter, setItemFilter] = useState<ItemFilter>('all');
@@ -95,9 +92,9 @@ export const Bundles = () => {
   if (!activeRoom) {
     return (
       <div className={styles.container}>
-        <h2 className={styles.title}>Lotes</h2>
+        <h2 className={styles.title}>{t.bundles.title}</h2>
         <section className={styles.panel}>
-          <p className={styles.placeholder}>No hay datos de lotes disponibles.</p>
+          <p className={styles.placeholder}>{t.bundles.noData}</p>
         </section>
       </div>
     );
@@ -105,12 +102,12 @@ export const Bundles = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Lotes</h2>
+      <h2 className={styles.title}>{t.bundles.title}</h2>
 
       <section className={styles.summaryPanel}>
         <div>
-          <p className={styles.summaryLabel}>Progreso global</p>
-          <p className={styles.summaryValue}>{globalCompleted} / {globalTotal} items</p>
+          <p className={styles.summaryLabel}>{t.bundles.globalProgress}</p>
+          <p className={styles.summaryValue}>{globalCompleted} / {globalTotal} {t.bundles.itemsUnit}</p>
         </div>
         <div className={styles.progressBarTrack}>
           <div
@@ -134,7 +131,7 @@ export const Bundles = () => {
                 className={`${styles.roomTab} ${room.id === activeRoom.id ? styles.roomTabActive : ''}`}
                 onClick={() => setActiveRoomId(room.id)}
               >
-                <span>{room.name}</span>
+                <span>{getBundleRoomLabel(room.id as Parameters<typeof getBundleRoomLabel>[0], language)}</span>
                 <small>{roomCompleted}/{roomTotal}</small>
               </button>
             );
@@ -143,66 +140,66 @@ export const Bundles = () => {
 
         <div className={styles.filterStack}>
           <div className={styles.filterRow}>
-            <span className={styles.filterLabel}>Mostrar:</span>
+            <span className={styles.filterLabel}>{t.bundles.showLabel}</span>
             <button
               type="button"
               className={`${styles.filterBtn} ${itemFilter === 'all' ? styles.filterBtnActive : ''}`}
               onClick={() => setItemFilter('all')}
             >
-              Todos
+              {t.bundles.all}
             </button>
             <button
               type="button"
               className={`${styles.filterBtn} ${itemFilter === 'pending' ? styles.filterBtnActive : ''}`}
               onClick={() => setItemFilter('pending')}
             >
-              Pendientes
+              {t.bundles.pending}
             </button>
             <button
               type="button"
               className={`${styles.filterBtn} ${itemFilter === 'completed' ? styles.filterBtnActive : ''}`}
               onClick={() => setItemFilter('completed')}
             >
-              Completados
+              {t.bundles.completed}
             </button>
           </div>
 
           <div className={styles.filterRow}>
-            <span className={styles.filterLabel}>Estacion:</span>
+            <span className={styles.filterLabel}>{t.bundles.seasonLabel}</span>
             <button
               type="button"
               className={`${styles.filterBtn} ${seasonFilter === 'all' ? styles.filterBtnActive : ''}`}
               onClick={() => setSeasonFilter('all')}
             >
-              Todas
+              {t.bundles.allSeasons}
             </button>
             <button
               type="button"
               className={`${styles.filterBtn} ${seasonFilter === 'spring' ? styles.filterBtnActive : ''}`}
               onClick={() => setSeasonFilter('spring')}
             >
-              Primavera
+              {getSeasonLabel('spring')}
             </button>
             <button
               type="button"
               className={`${styles.filterBtn} ${seasonFilter === 'summer' ? styles.filterBtnActive : ''}`}
               onClick={() => setSeasonFilter('summer')}
             >
-              Verano
+              {getSeasonLabel('summer')}
             </button>
             <button
               type="button"
               className={`${styles.filterBtn} ${seasonFilter === 'fall' ? styles.filterBtnActive : ''}`}
               onClick={() => setSeasonFilter('fall')}
             >
-              Otoño
+              {getSeasonLabel('fall')}
             </button>
             <button
               type="button"
               className={`${styles.filterBtn} ${seasonFilter === 'winter' ? styles.filterBtnActive : ''}`}
               onClick={() => setSeasonFilter('winter')}
             >
-              Invierno
+              {getSeasonLabel('winter')}
             </button>
           </div>
         </div>
@@ -217,8 +214,8 @@ export const Bundles = () => {
               <article key={bundle.id} className={styles.bundleCard}>
                 <header className={styles.bundleHeader}>
                   <div>
-                    <h3 className={styles.bundleTitle}>{bundle.name}</h3>
-                    {bundle.reward && <p className={styles.bundleReward}>Recompensa: {bundle.reward}</p>}
+                    <h3 className={styles.bundleTitle}>{getBundleName(bundle.id as Parameters<typeof getBundleName>[0], language)}</h3>
+                    {bundle.reward && <p className={styles.bundleReward}>{t.bundles.rewardLabel} {bundle.reward}</p>}
                   </div>
                   <p className={styles.bundleProgressLabel}>{completed}/{total}</p>
                 </header>
@@ -232,19 +229,20 @@ export const Bundles = () => {
 
                 <div className={styles.itemsGrid}>
                   {visibleItems.length === 0 ? (
-                    <p className={styles.emptyItems}>No hay items para este filtro.</p>
+                    <p className={styles.emptyItems}>{t.bundles.noItems}</p>
                   ) : (
                     visibleItems.map((item) => {
                       const isCurrentSeasonItem = item.season?.includes(currentSeason);
                       const isOutOfSeason = item.season && !isCurrentSeasonItem;
-                      const seasonText = item.season?.map((season) => SEASON_LABELS[season]).join(', ');
+                      const seasonText = item.season?.map((season) => getSeasonLabel(season)).join(', ');
+                      const itemLabel = getItemLabel(item.name, language);
 
                       return (
                         <div
                           key={item.id}
                           className={`${styles.itemWrap} ${isCurrentSeasonItem ? styles.currentSeasonItem : ''} ${isOutOfSeason ? styles.outOfSeasonItem : ''}`}
                         >
-                          <ItemCard id={item.id} name={item.name} imageSrc={getItemImageSrc(item)} />
+                          <ItemCard id={item.id} name={itemLabel} imageSrc={getItemImageSrc(item)} />
                           {(item.season || item.amount || item.quality) && (
                             <p className={styles.itemMeta}>
                               {item.amount ? `${item.amount}x` : null}
@@ -252,7 +250,7 @@ export const Bundles = () => {
                               {seasonText ? ` | ${seasonText}` : null}
                             </p>
                           )}
-                          {isCurrentSeasonItem && <span className={styles.seasonHint}>Temporada actual</span>}
+                          {isCurrentSeasonItem && <span className={styles.seasonHint}>{t.bundles.currentSeasonHint}</span>}
                         </div>
                       );
                     })

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import calendarData from '@shared/data/static/calendar.json';
+import { useTranslations } from '@shared/i18n';
 import styles from './MonthlyCalendar.module.css';
 
 type Season = 'spring' | 'summer' | 'fall' | 'winter';
@@ -23,14 +24,13 @@ interface MonthlyCalendarProps {
     tasks: TaskSummary[];
 }
 
-const WEEK_DAYS = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
-
 export const MonthlyCalendar = ({
     currentSeason,
     selectedDay,
     onSelectDay,
     tasks,
 }: MonthlyCalendarProps) => {
+    const { t } = useTranslations();
     const [showOnlyWithContent, setShowOnlyWithContent] = useState(false);
     const [activeTooltipDay, setActiveTooltipDay] = useState<number | null>(null);
     const days = Array.from({ length: 28 }, (_, index) => index + 1);
@@ -89,21 +89,21 @@ export const MonthlyCalendar = ({
     return (
         <section className={styles.container}>
             <div className={styles.headerRow}>
-                <h3 className={styles.title}>Calendario</h3>
+                <h3 className={styles.title}>{t.monthlyCalendar.title}</h3>
                 <div className={styles.controls}>
                     <button
                         type="button"
                         className={`${styles.filterBtn} ${showOnlyWithContent ? styles.filterBtnActive : ''}`}
                         onClick={() => setShowOnlyWithContent((prev) => !prev)}
                     >
-                        {showOnlyWithContent ? 'Mostrar todos' : 'Solo con contenido'}
+                        {showOnlyWithContent ? t.monthlyCalendar.showAll : t.monthlyCalendar.onlyWithContent}
                     </button>
-                    <p className={styles.caption}>Pulsa un dia para abrir su agenda</p>
+                    <p className={styles.caption}>{t.monthlyCalendar.openAgendaHint}</p>
                 </div>
             </div>
 
             <div className={styles.weekHeader}>
-                {WEEK_DAYS.map((dayName) => (
+                {t.monthlyCalendar.weekDays.map((dayName) => (
                     <span key={dayName} className={styles.weekDay}>{dayName}</span>
                 ))}
             </div>
@@ -138,23 +138,23 @@ export const MonthlyCalendar = ({
 
                             {isTooltipOpen && dayDetails.hasContent && (
                                 <div id={`calendar-tooltip-${dayNumber}`} role="tooltip" className={styles.tooltipCard}>
-                                    <p className={styles.tooltipTitle}>Dia {dayNumber}</p>
+                                    <p className={styles.tooltipTitle}>{t.monthlyCalendar.dayPrefix} {dayNumber}</p>
 
                                     {dayDetails.events.map((event) => (
                                         <p key={`${dayNumber}-${event.type}-${event.name}`} className={styles.tooltipLine}>
                                             <span className={`${styles.tooltipTag} ${event.type === 'birthday' ? styles.birthdayTag : styles.festivalTag}`}>
-                                                {event.type === 'birthday' ? 'Cumpleaños' : 'Festival'}
+                                                {event.type === 'birthday' ? t.monthlyCalendar.birthday : t.monthlyCalendar.festival}
                                             </span>
                                             <span>{event.name}</span>
                                         </p>
                                     ))}
 
                                     <p className={styles.tooltipLine}>
-                                        <span className={`${styles.tooltipTag} ${styles.tasksTag}`}>Notas</span>
+                                        <span className={`${styles.tooltipTag} ${styles.tasksTag}`}>{t.monthlyCalendar.notes}</span>
                                         <span>
                                             {dayDetails.taskSummary
-                                                ? 'Hay notas para este dia'
-                                                : '0 notas'}
+                                                ? t.monthlyCalendar.notesToday
+                                                : t.monthlyCalendar.zeroNotes}
                                         </span>
                                     </p>
                                 </div>
@@ -165,13 +165,13 @@ export const MonthlyCalendar = ({
             </div>
 
             {showOnlyWithContent && visibleDays.length === 1 && visibleDays[0] === selectedDay && !eventSummaryByDay[selectedDay] && !taskSummaryByDay[selectedDay]?.total && (
-                <p className={styles.emptyFilterState}>No hay dias con contenido en esta estacion todavia.</p>
+                <p className={styles.emptyFilterState}>{t.monthlyCalendar.emptyState}</p>
             )}
 
             <div className={styles.legend}>
-                <span className={styles.legendItem}><span className={`${styles.marker} ${styles.birthday}`} /> Cumpleaños</span>
-                <span className={styles.legendItem}><span className={`${styles.marker} ${styles.festival}`} /> Festival</span>
-                <span className={styles.legendItem}><span className={`${styles.marker} ${styles.tasks}`} /> Notas</span>
+                <span className={styles.legendItem}><span className={`${styles.marker} ${styles.birthday}`} /> {t.monthlyCalendar.legendBirthday}</span>
+                <span className={styles.legendItem}><span className={`${styles.marker} ${styles.festival}`} /> {t.monthlyCalendar.legendFestival}</span>
+                <span className={styles.legendItem}><span className={`${styles.marker} ${styles.tasks}`} /> {t.monthlyCalendar.legendNotes}</span>
             </div>
         </section>
     );

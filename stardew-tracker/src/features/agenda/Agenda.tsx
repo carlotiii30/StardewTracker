@@ -1,5 +1,6 @@
 import { useRef } from 'react';
-import { SEASON_TRANSLATIONS, SEASONS } from '@shared/constants';
+import { SEASONS } from '@shared/constants';
+import { useTranslations } from '@shared/i18n';
 import schedules from '@shared/data/static/schedules.json';
 import { useProgressStore } from '@shared/store/useProgressStore';
 import { useAgendaStore } from '@shared/store/useAgendaStore';
@@ -16,6 +17,7 @@ type SchedulesMap = Record<string, BusinessSchedule>;
 
 export const Agenda = () => {
     const taskInputRef = useRef<HTMLInputElement>(null);
+    const { t, getSeasonLabel } = useTranslations();
     const currentSeason = useProgressStore((state) => state.currentSeason);
     const setSeason = useProgressStore((state) => state.setSeason);
     const day = useProgressStore((state) => state.day);
@@ -75,11 +77,11 @@ export const Agenda = () => {
                         key={s}
                         onClick={() => setSeason(s)}
                         className={`${styles.seasonBtn} ${currentSeason === s ? styles[s] : ''}`}
-                        title={SEASON_TRANSLATIONS[s]}
+                        title={getSeasonLabel(s)}
                     >
                         <img
                             src={`/seasons/${s}.png`}
-                            alt={SEASON_TRANSLATIONS[s]}
+                            alt={getSeasonLabel(s)}
                             className={styles.seasonIcon}
                         />
                     </button>
@@ -95,7 +97,7 @@ export const Agenda = () => {
 
             <section className={styles.todaySection}>
                 <h3 className={styles.sectionTitle}>
-                    {day} de {SEASON_TRANSLATIONS[currentSeason]}
+                    {t.agenda.todayLabel(day, getSeasonLabel(currentSeason))}
                 </h3>
                 <DailyAlerts />
             </section>
@@ -103,13 +105,13 @@ export const Agenda = () => {
             <hr className={styles.divider} />
 
             <section className={styles.tasksSection}>
-                <h3 className={styles.sectionTitle}>Notas del día</h3>
+                <h3 className={styles.sectionTitle}>{t.agenda.notesTitle}</h3>
                 <div className={styles.inputWrapper}>
-                    <span className={styles.inputIcon}>Nota</span>
+                    <span className={styles.inputIcon}>{t.agenda.inputBadge}</span>
                     <input
                         ref={taskInputRef}
                         type="text"
-                        placeholder="Añadir recordatorio para hoy..."
+                        placeholder={t.agenda.placeholder}
                         onKeyDown={handleAddTask}
                         className={styles.taskInput}
                     />
@@ -117,15 +119,15 @@ export const Agenda = () => {
                         type="button"
                         onClick={handleAddTaskFromButton}
                         className={styles.addBtn}
-                        aria-label="Registrar nota"
+                        aria-label={t.agenda.noteAriaLabel}
                     >
-                        Registrar
+                        {t.agenda.register}
                     </button>
                 </div>
 
                 <div className={styles.taskList}>
                     {dailyTasks.length === 0 ? (
-                        <p className={styles.emptyState}>No hay notas para este día.</p>
+                        <p className={styles.emptyState}>{t.agenda.emptyState}</p>
                     ) : (
                         dailyTasks.map(task => {
                             const warning = checkTaskWarning(task.text, day);
@@ -147,23 +149,23 @@ export const Agenda = () => {
                                             <button
                                                 onClick={() => moveTaskToNextDay(task.id)}
                                                 className={styles.moveBtn}
-                                                title="Pasar a mañana"
+                                                title={t.agenda.moveToTomorrow}
                                             >
-                                                Mover
+                                                {t.agenda.moveToTomorrow}
                                             </button>
                                             <button
                                                 onClick={() => deleteTask(task.id)}
                                                 className={styles.deleteBtn}
-                                                title="Borrar tarea"
+                                                title={t.agenda.deleteTask}
                                             >
-                                                Borrar
+                                                {t.agenda.deleteTask}
                                             </button>
                                         </div>
                                     </div>
 
                                     {warning && !task.completed && (
                                         <div className={styles.smartWarning}>
-                                            <span className={styles.warningIcon}>Aviso</span>
+                                            <span className={styles.warningIcon}>{t.agenda.warning}</span>
                                             <p className={styles.warningText}>{warning}</p>
                                         </div>
                                     )}
