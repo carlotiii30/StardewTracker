@@ -2,6 +2,10 @@
 
 > The ultimate pocket guide for your farm. Designed to replace the 20 open wiki tabs with a beautiful, interactive interface.
 
+## 🔗 Link
+
+[https://stardewtracker.pages.dev/](https://stardewtracker.pages.dev/)
+
 ## ✨ Key Features
 
 * **🎮 Console Friendly:** No save file uploads required. Perfect for Switch, Xbox, and PlayStation players who can't export their saves.
