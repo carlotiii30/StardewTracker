@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { getBundleReward } from '@shared/translations/bundles';
 import bundles from '../bundles.json';
 import calendar from '../calendar.json';
 import villagers from '../villagers.json';
@@ -32,6 +33,12 @@ describe('bundles.json', () => {
         const ids = bundles.rooms.flatMap((r) => r.bundles.map((b) => b.id));
         const unique = new Set(ids);
         expect(unique.size).toBe(ids.length);
+    });
+
+    it('las recompensas se traducen según el idioma', () => {
+        expect(getBundleReward('spring_crops', 'es')).toBe('Acelerador básico (20)');
+        expect(getBundleReward('spring_crops', 'en')).toBe('Basic Sprinkler (20)');
+        expect(getBundleReward('artisan_bundle', 'en')).toBe('Barrel (1)');
     });
 });
 

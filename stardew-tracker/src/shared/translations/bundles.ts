@@ -105,6 +105,67 @@ const bundleNames: Record<Language, Record<BundleId, string>> = {
     },
 };
 
+const bundleRewards: Record<Language, Record<BundleId, string>> = {
+    es: {
+        spring_crops: 'Acelerador básico (20)',
+        summer_crops: 'Aspersor de calidad (1)',
+        fall_crops: 'Colmena (1)',
+        quality_crops: 'Envasadora (1)',
+        animal_bundle: 'Prensa de queso (1)',
+        artisan_bundle: 'Barril (1)',
+        river_fish: 'Cebo de lujo (30)',
+        lake_fish: 'Girador disfrazado (1)',
+        ocean_fish: 'Tótem de viaje: Playa (5)',
+        night_fishing: 'Anillo brillante (1)',
+        crab_pot: 'Trampa para cangrejos (3)',
+        specialty_fish: 'Plato de alta mar (5)',
+        blacksmith_bundle: 'Horno (1)',
+        geologist_bundle: 'Omnigeoda (5)',
+        adventurer_bundle: 'Pequeño anillo magnético (1)',
+        chef_bundle: 'Pastel rosa (3)',
+        tinte_bundle: 'Semilladora (1)',
+        campo_bundle: 'Máquina recicladora (1)',
+        pienso_bundle: 'Radiador (1)',
+        encantador_bundle: 'Lingote de oro (5)',
+        spring_foraging: 'Semillas primaverales (30)',
+        summer_foraging: 'Semillas veraniegas (30)',
+        fall_foraging: 'Semillas otoñales (30)',
+        winter_foraging: 'Semillas invernales (30)',
+        construction_bundle: 'Horno de carbón (1)',
+        exotic_foraging: 'Botín otoñal (5)',
+    },
+    en: {
+        spring_crops: 'Basic Sprinkler (20)',
+        summer_crops: 'Quality Sprinkler (1)',
+        fall_crops: 'Bee House (1)',
+        quality_crops: 'Preserves Jar (1)',
+        animal_bundle: 'Cheese Press (1)',
+        artisan_bundle: 'Barrel (1)',
+        river_fish: 'Deluxe Bait (30)',
+        lake_fish: 'Dressed Spinner (1)',
+        ocean_fish: 'Beach Totem (5)',
+        night_fishing: 'Bright Ring (1)',
+        crab_pot: 'Crab Pot (3)',
+        specialty_fish: 'Dish O’ The Sea (5)',
+        blacksmith_bundle: 'Furnace (1)',
+        geologist_bundle: 'Omni Geode (5)',
+        adventurer_bundle: 'Small Magnet Ring (1)',
+        chef_bundle: 'Pink Cake (3)',
+        tinte_bundle: 'Seed Maker (1)',
+        campo_bundle: 'Recycling Machine (1)',
+        pienso_bundle: 'Heater (1)',
+        encantador_bundle: 'Gold Bar (5)',
+        spring_foraging: 'Spring Seeds (30)',
+        summer_foraging: 'Summer Seeds (30)',
+        fall_foraging: 'Fall Seeds (30)',
+        winter_foraging: 'Winter Seeds (30)',
+        construction_bundle: 'Charcoal Kiln (1)',
+        exotic_foraging: 'Autumn’s Treasure (5)',
+    },
+};
+
 export const getBundleRoomLabel = (roomId: BundleRoomId, language: Language) => bundleRooms[language][roomId];
 
 export const getBundleName = (bundleId: BundleId, language: Language) => bundleNames[language][bundleId];
+
+export const getBundleReward = (bundleId: BundleId, language: Language) => bundleRewards[language][bundleId];

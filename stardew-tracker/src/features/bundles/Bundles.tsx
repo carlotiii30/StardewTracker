@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import bundlesData from '@shared/data/static/bundles.json';
 import { useTranslations } from '@shared/i18n';
 import { useProgressStore } from '@shared/store/useProgressStore';
-import { getBundleName, getBundleRoomLabel } from '@shared/translations/bundles';
+import { getBundleName, getBundleReward, getBundleRoomLabel } from '@shared/translations/bundles';
 import { getItemImagePath } from '@shared/utils/itemImages';
 import { getItemLabel } from '@shared/translations/items';
 import { ItemCard } from './components/ItemCard';
@@ -215,7 +215,11 @@ export const Bundles = () => {
                 <header className={styles.bundleHeader}>
                   <div>
                     <h3 className={styles.bundleTitle}>{getBundleName(bundle.id as Parameters<typeof getBundleName>[0], language)}</h3>
-                    {bundle.reward && <p className={styles.bundleReward}>{t.bundles.rewardLabel} {bundle.reward}</p>}
+                    {bundle.reward && (
+                      <p className={styles.bundleReward}>
+                        {t.bundles.rewardLabel} {getBundleReward(bundle.id as Parameters<typeof getBundleReward>[0], language)}
+                      </p>
+                    )}
                   </div>
                   <p className={styles.bundleProgressLabel}>{completed}/{total}</p>
                 </header>
